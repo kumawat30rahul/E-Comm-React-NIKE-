@@ -21,7 +21,7 @@ function Navbar() {
 
   return (
     <div className='main_navbar'>
-      <div className='second_navbar'>
+      {/* <div className='second_navbar'> */}
         <div className='main_sidebar'>
           <div className='menu_btn' onClick={sidebarHandler}>
               <MenuIcon />
@@ -53,8 +53,7 @@ function Navbar() {
           </div>
           <Icons />
         </div>
-      </div>
-        
+      {/* </div> */}
     </div>
   )
 }

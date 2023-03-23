@@ -1,18 +1,17 @@
 .main_navbar{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 65px;
     width: 100%;
+    padding-right: 20px;
 }
-.second_navbar{
-    /* padding: 0 30px 0 0; */
+ /* .second_navbar{
     height: 60px;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center; 
-    gap: 50px;
-}
+}  */
 .content{
     margin: 0 10px 0 10px;
 }
@@ -61,6 +60,8 @@ input:focus{
     width: auto !important;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    /* float: right; */
 }
 
 /* .content{
@@ -183,6 +184,7 @@ input:focus{
         height: 40px;
         width: 40px;
     }
+    
     
 }
 

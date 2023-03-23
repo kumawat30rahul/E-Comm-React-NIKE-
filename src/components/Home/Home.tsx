@@ -13,15 +13,32 @@ const Home = () => {
         <p>First Look</p>
         <h3>NIKE AIR MAX PULSE</h3>
         <p>Extreme comfort. Hyper durable. Max volume. Introducing the Air Max Pulse</p>
-        <p>—designed to push you past your limits and help you go to the max.</p>
+        <p className='p2'>—designed to push you past your limits and help you go to the max.</p>
         <button className="notify btn">Notify Me</button>
         <button className="buy btn">Shop Air Max</button>
       </div>
       <div className='home_trend_slider'>
         <CommonSlider 
+          slides={[3.2,3.2,2.8,2,1]}
           title="Best of Shoes"
           jsonName='TrendingShoes'
           />
+      </div>
+      <div className='slider_categories'>
+        <div className='mens_slider'>
+          <CommonSlider 
+            slides={[1.1,1.1,1.1,1.1,1.1]}
+            title="Best of Mens"
+            jsonName='TrendingMens'
+            />
+        </div>
+        <div className='womens_slider'>
+          <CommonSlider 
+            slides={[1.1,1.1,1.1,1.1,1.1]}
+            title="Best of Womens"
+            jsonName='TrendingMens'
+            />
+        </div>
       </div>
     </div>
   )

@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+:root{
+  --font-size: 15px;
+  font-size: var(--font-size);
+}
 html{
   height: 100%;
   box-sizing: border-box;
@@ -20,4 +24,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@media (max-width: 1024px){
+  :root{
+    --font-size: 12px;
+  }
 }

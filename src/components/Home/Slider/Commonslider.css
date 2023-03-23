@@ -44,3 +44,20 @@
     font-weight: 100;
 }
 
+@media (max-width: 756px){
+    .slick-next{
+        display: none !important;
+    }
+    .slick-prev{
+        display: none !important;
+    }
+    .slider_info{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px 0 10px;
+    }
+    .slider_info > .shop_button {
+        position: unset;
+    }
+}

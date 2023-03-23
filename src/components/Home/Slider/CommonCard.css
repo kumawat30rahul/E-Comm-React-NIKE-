@@ -52,3 +52,15 @@
     background-color: rgba(0, 0, 0, 0.205);
     transition: top 200ms ease;
 }
+
+@media (max-width: 600px){
+    .card{
+        min-height: 29.29vw;
+        width: 95% !important;
+        /* margin: 0 30px 0 30px; */
+    }
+    .imagesss{
+        height: auto;
+        width: 100%;
+    }
+}

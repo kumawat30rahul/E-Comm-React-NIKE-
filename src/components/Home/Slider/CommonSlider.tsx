@@ -8,15 +8,15 @@ import CommonCard from './CommonCard';
 // import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 
-function CommonSlider({title,jsonName}:any) {
+function CommonSlider({title,jsonName,slides}:any) {
   const [data,setData] = useState<any[]>([])
 
    useEffect(() => {
          const db = getDatabase();
          const dbRef = ref(db, jsonName);
          onValue(dbRef, (snapshot) => {
-           const newData = snapshot.val();
-           setData(newData.ShoeTrends);
+           let newData = snapshot.val();
+           setData(newData);
          });
        }, []);
        useEffect(() => {
@@ -28,32 +28,47 @@ function CommonSlider({title,jsonName}:any) {
       var settings = {
         infinite: false,
         speed: 500,
-        slidesToShow: 3.2,
+        slidesToShow: slides[0],
         slidesToScroll: 1,
-        initialSlide: 0,
+        initialSlide: 1,
         responsive: [
           {
             breakpoint: 1024,
             settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3,
+              slidesToShow: slides[1],
+              slidesToScroll: 2,
               infinite: true,
-              dots: true
+        initialSlide: 1,
+
+            }
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: slides[2],
+              slidesToScroll: 2,
+              infinite: true,
+        initialSlide: 1,
+
             }
           },
           {
             breakpoint: 600,
             settings: {
-              slidesToShow: 2,
+              slidesToShow: slides[3],
               slidesToScroll: 2,
-              initialSlide: 2
+              infinite: true,
+        initialSlide: 1,
+
             }
           },
           {
             breakpoint: 480,
             settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1
+              slidesToShow: slides[4],
+              slidesToScroll: 1,
+        initialSlide: 1,
+
             }
           }
         ]
