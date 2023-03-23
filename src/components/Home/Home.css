@@ -1,6 +1,7 @@
 .home_main{
     min-height: 100vh;
     width: 100%;
+    z-index: -1;
 }
 
 .home_image{

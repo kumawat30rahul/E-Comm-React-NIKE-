@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Contents from './Contents';
-import '../../../Css/Navbar.css';
+import './Navbar.css';
 import LOGO from './LOGO.png';
 import Icons from './Icons'
 import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';

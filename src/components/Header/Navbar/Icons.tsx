@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../Css/Icons.css';
+import './Icons.css';
 import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
 import ShoppingBagTwoToneIcon from '@mui/icons-material/ShoppingBagTwoTone';
 import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';

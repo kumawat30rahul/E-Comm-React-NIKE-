@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../Css/Contents.css';
+import './Contents.css';
 
 
 function Contents() {

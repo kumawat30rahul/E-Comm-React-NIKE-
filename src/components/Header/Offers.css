@@ -8,7 +8,7 @@
     width: 100%;
     background-color: rgba(0, 0, 0, 0.856);
 }
-p{
+.main_offers > p{
     color: white;
     margin: 0;
 }

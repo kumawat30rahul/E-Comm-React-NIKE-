@@ -1,9 +1,8 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import './Home.css'
 import CommonSlider from './Slider/CommonSlider'
 
 const Home = () => {
-  
 
   return (
     <div className='home_main'>
@@ -19,7 +18,10 @@ const Home = () => {
         <button className="buy btn">Shop Air Max</button>
       </div>
       <div className='home_trend_slider'>
-        <CommonSlider />
+        <CommonSlider 
+          title="Best of Shoes"
+          jsonName='TrendingShoes'
+          />
       </div>
     </div>
   )

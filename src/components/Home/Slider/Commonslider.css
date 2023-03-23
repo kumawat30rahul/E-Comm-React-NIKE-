@@ -1,13 +1,46 @@
-.card{
-    min-height: 300px;
-    min-width: 300px;
+.trending_slider{
+    position: relative;
+    padding: 0 0 0 20px ;
 }
 
-.imagesss{
-    height: 100%;
+/* .card_price{
+    position: absolute;
+    top: 16px;
+    right: 0;
+} */
+.slick-next{
+    position: absolute;
+    top: -60px;
+    right: 20px !important;
+    z-index: 999;
+    /* background-color: black; */
+}
+.slick-prev{
+    position: absolute;
+    top: -60px;
+    right: 70px !important;
+    z-index: 999;
+    /* background-color: black; */
+}
+
+.slider_wrapper{
+    position: relative;
+    margin-top: 15px;
+}
+.slider_info{
+    padding: 10px;
     width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-weight: 400;
+    font-size: 1.3rem;
 }
 
-.card_content{
-    color: black;
+.slider_info > .shop_button {
+    position: absolute;
+    right: 150px;
+    font-weight: 100;
 }
+

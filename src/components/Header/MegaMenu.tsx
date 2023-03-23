@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../Css/MegaMenu.css'
+import './MegaMenu.css'
 
 function MegaMenu() {
   return (
