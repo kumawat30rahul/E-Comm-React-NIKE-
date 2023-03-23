@@ -1,0 +1,14 @@
+.main_offers{
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:0;
+    height: 30px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.856);
+}
+p{
+    color: white;
+    margin: 0;
+}

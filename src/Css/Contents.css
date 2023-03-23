@@ -1,0 +1,55 @@
+.main_contents{
+    height: 60px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.one, .two, .three, .four, .five, .six{
+    letter-spacing: 1px;
+    font-size: medium;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    margin:0 10px 0 10px;
+    cursor: pointer;
+    border-bottom: 4px solid transparent;
+}
+.four, .two, .three{
+    font-weight: 600;
+}
+
+
+
+.mega_menu{
+    visibility: hidden;
+    z-index: 99;
+    position: absolute;
+    top: 95px;
+    left: 0;
+    height: 400px;
+    width: 100%;
+    border-top: 1px solid rgba(94, 89, 89, 0.281);
+    background-color: white;
+    transition-delay: 0.3s;
+
+}
+li:hover {
+    border-bottom: 4px solid black;
+
+}
+li:hover .mega_menu{
+    visibility: visible;
+    transition-delay: 0.1s;
+}
+
+

@@ -1,0 +1,26 @@
+.sing_up_box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgba(128, 128, 128, 0.74);
+    height: auto;
+    width: 280px;
+}
+
+.sing_up_box .input{
+    border-bottom: 1.5px solid rgb(104, 98, 98);
+    margin: 5px 0 5px 0;
+    height: 20px;
+    width: 200px;
+}
+
+.sing_up_title{
+    font-size: small;
+    font-weight: 300;
+}
+
+.button{
+    height: 30px;
+    width: auto;
+    border-radius: 5px;
+}

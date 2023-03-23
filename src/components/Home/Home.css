@@ -1,0 +1,30 @@
+.home_main{
+    min-height: 100vh;
+    width: 100%;
+}
+
+.home_image{
+    height: 48vw;
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.home_image_description{
+    width: 100%;
+    height: auto;
+    margin: 20px 0 20px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.home_image_description > p{
+    color: black !important;
+}
+
+.home_image_description > h3 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 900;
+    font-size: 4rem;
+    margin: -5px 0 0 0 ;
+}

@@ -1,0 +1,30 @@
+.main{
+    display: flex;
+    align-items: center;
+}
+.main_icons{
+    cursor: pointer;
+    display: flex;
+    width: 120px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (max-width: 960px) {
+    .main_icons{
+        display:flex;
+        align-items: center;
+        width: auto;
+    }
+
+    .main_icons > .shop , .fav , .acc{
+        margin: 0 0 0 15px;
+    }
+
+    .fav{
+        display: none;
+    }
+
+   
+
+}
