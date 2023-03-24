@@ -10,19 +10,34 @@
 } */
 .slick-next{
     position: absolute;
-    top: -60px;
+    top: -58px;
     right: 20px !important;
     z-index: 999;
+    height: 40px !important;
+    width: 40px !important;
+    border-radius: 100vw 100vw 100vw 100vw;
     /* background-color: black; */
 }
 .slick-prev{
     position: absolute;
-    top: -55px;
+    top: -58px;
     right: 70px !important;
     z-index: 999;
-    border: 0.5px solid black;
+    height: 40px !important;
+    width: 40px !important;
+    border-radius: 100vw 100vw 100vw 100vw;
     /* background-color: black; */
 }
+
+.slick-prev:hover{
+    cursor: pointer;
+    background-color: gray;
+}
+.slick-next:hover{
+    cursor: pointer;
+    background-color: gray;
+}
+
 
 .slider_wrapper{
     position: relative;

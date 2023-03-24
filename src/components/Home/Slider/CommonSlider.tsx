@@ -9,9 +9,16 @@ import CommonCard from './CommonCard';
 import "slick-carousel/slick/slick.css";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+import {Link,useNavigate} from 'react-router-dom'
+
+
 
 function CommonSlider({title,jsonName,slides}:any) {
   const [data,setData] = useState<any[]>([])
+  const [prdtDetail,setPrdtDetail] = useState<any>();
+  
+  
+  const navigate = useNavigate();
 
    useEffect(() => {
          const db = getDatabase();
@@ -21,11 +28,9 @@ function CommonSlider({title,jsonName,slides}:any) {
            setData(newData);
          });
        }, []);
-       useEffect(() => {
-         console.log(data);
-       }, [data]);
-       
-       const app = initializeApp(firebaseConfig);
+   const app = initializeApp(firebaseConfig);
+
+  //  }
       //slider settings---->>>>
       var settings = {
         infinite: false,
@@ -78,7 +83,11 @@ function CommonSlider({title,jsonName,slides}:any) {
         ]
       };
 
-  return (
+      const productCardhandler=(cardData:any)=>{
+        setPrdtDetail(cardData);
+        navigate(`/productDetail/${cardData.id}`,{state:{cardData}})
+      }
+   return (
     <div className='slider_wrapper'>
       <div className="slider_info">
         <p className="slider_title">{title}</p>
@@ -86,6 +95,7 @@ function CommonSlider({title,jsonName,slides}:any) {
       </div>
       <Slider {...settings} className='trending_slider'>
       {data && data.map( product =>(
+        <div onClick={()=> productCardhandler(product)}>
         <CommonCard 
             title={product.title}
             images={product.images}
@@ -93,8 +103,8 @@ function CommonSlider({title,jsonName,slides}:any) {
             price={product.price}
             jsonName='TrendingShoes'
           />
+        </div>
       ))}
-
       </Slider>
       </div>
   )
