@@ -36,7 +36,7 @@ function CommonSlider({title,jsonName,slides}:any) {
             breakpoint: 1024,
             settings: {
               slidesToShow: slides[1],
-              slidesToScroll: 2,
+              slidesToScroll: 1,
               infinite: true,
         initialSlide: 1,
 
@@ -46,7 +46,7 @@ function CommonSlider({title,jsonName,slides}:any) {
             breakpoint: 768,
             settings: {
               slidesToShow: slides[2],
-              slidesToScroll: 2,
+              slidesToScroll: 1,
               infinite: true,
         initialSlide: 1,
 
@@ -56,7 +56,7 @@ function CommonSlider({title,jsonName,slides}:any) {
             breakpoint: 600,
             settings: {
               slidesToShow: slides[3],
-              slidesToScroll: 2,
+              slidesToScroll: 1,
               infinite: true,
         initialSlide: 1,
 
