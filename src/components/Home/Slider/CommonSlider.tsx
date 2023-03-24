@@ -7,6 +7,8 @@ import './Commonslider.css'
 import CommonCard from './CommonCard';
 // import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 
 function CommonSlider({title,jsonName,slides}:any) {
   const [data,setData] = useState<any[]>([])
@@ -31,6 +33,8 @@ function CommonSlider({title,jsonName,slides}:any) {
         slidesToShow: slides[0],
         slidesToScroll: 1,
         initialSlide: 1,
+        nextArrow: <NavigateNextIcon />,
+        prevArrow: <NavigateBeforeIcon />,
         responsive: [
           {
             breakpoint: 1024,

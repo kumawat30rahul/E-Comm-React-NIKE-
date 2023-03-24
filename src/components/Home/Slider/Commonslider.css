@@ -17,9 +17,10 @@
 }
 .slick-prev{
     position: absolute;
-    top: -60px;
+    top: -55px;
     right: 70px !important;
     z-index: 999;
+    border: 0.5px solid black;
     /* background-color: black; */
 }
 
