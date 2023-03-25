@@ -1,0 +1,151 @@
+.cart_checkout{
+    padding: 10px;
+    width: 100%;
+    height: 600px;
+    display: flex;
+}
+
+.cart{
+    padding: 10px;
+    width: 60%;
+    height: auto;
+}
+
+.summary{
+    width: 40%;
+    height: auto;
+}
+
+.cart_card{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    padding: 30px 10px 30px 10px;
+    border-top: 0.5px solid rgba(128, 128, 128, 0.452);
+    border-bottom: 0.5px solid rgba(128, 128, 128, 0.452);
+
+}
+.cart_card_image{
+    height: 150px;
+    width: 150px;
+    background-color: blue;
+    display: flex;
+    align-items: center;
+}
+.cart_image{
+    height: 100%;
+    width: 100%;
+}
+
+.cart_card_info{
+    width: 80%;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+}
+
+.cart_main_info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.cart_card_title{
+    font-weight: 400;
+    font-size: 24px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.cart_type{
+    margin: 0;
+    color: rgba(128, 128, 128, 0.781);
+}
+
+.size_quantity{
+    display: flex;
+    align-items: center;
+}
+
+.label{
+    margin-left: 15px;
+    font-size: 15px;
+}
+.cart_quantity{
+    margin-left: 5px;
+    padding-left: 15px;
+    border-radius: 100vw 100vw 100vw 100vw !important;
+    width: 50px;
+    border: 0.5px solid black;
+}
+
+.delete_btn{
+    height: 20px;
+    font-size: 18px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subtotal,.delivery,.total{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px
+}
+
+.total{
+    padding: 25px 10px 25px 10px;
+    border-top: 0.5px solid rgba(128, 128, 128, 0.452);
+    border-bottom: 0.5px solid rgba(128, 128, 128, 0.452);
+}
+
+.subtotal>p,.delivery>p,.total>p{
+    font-size: 20px;
+    margin: 0;
+    font-weight: 200;
+}
+
+.cart_title, .summary_title{
+    font-weight: 400;
+}
+
+.checkOut_btn{
+    margin-top: 15px;
+}
+
+@media (max-width:600px){
+    .cart_checkout{
+        flex-direction: column;
+    }
+
+    .cart{
+        width: 100%;
+    }
+
+    .summary{
+        width: 100%;
+    }
+}
+
+@media (max-width: 425px){
+    .cart_main_info{
+        flex-direction: column;
+        /* justify-content: start; */
+        align-items: start;
+    }
+
+    .cart_card_title{
+        font-size: 20px;
+    }
+
+    .cart_card_image{
+        width: 120px;
+        height: 120px;
+    }
+
+    .subtotal>p,.delivery>p,.total>p{
+        font-size: 15px;
+    }
+}

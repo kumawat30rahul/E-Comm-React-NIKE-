@@ -7,6 +7,11 @@ import Home from "./components/Home/Home";
 import {BrowserRouter,Routes,Route} from "react-router-dom"
 import Header from "./components/Header/Header";
 import ProductDetails from './components/ProductDetails/ProductDetails'
+import Signup from "./components/Account/Signup";
+import Login from "./components/Account/Login";
+import Cart from "./components/Cart&Wishist/Cart";
+import Fav from "./components/Cart&Wishist/Fav";
+import Shop from "./components/Shop/Shop";
 
 
 function App() {
@@ -16,6 +21,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/productDetail/:id" element={<ProductDetails />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/fav" element={<Fav />} />
+        <Route path="/shop" element={<Shop />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,0 +1,81 @@
+.signup_wrapper{
+    color: black;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 320px;
+}
+
+.form>input{
+    padding: 10px;
+    margin: 10px;
+    height: 40px;
+    background-color: white;
+    color: gray;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+.form>.gender>.male > input{
+    padding: 10px;
+    margin: 10px;
+    height: 40px;
+    background-color: white;
+    color: gray;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+.form>.gender>.female > input{
+    padding: 10px;
+    margin: 10px;
+    height: 40px;
+    background-color: white;
+    color: gray;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+.gender{
+    position: relative;
+    padding: 0 10px 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* gap: 10px; */
+}
+
+.male,.female{
+    position: relative;
+    width: 100%;
+}
+.gender >.male> span , .gender >.female> span{
+    position: absolute;
+    top: 20px;
+    left: 55px;
+    font-size: 15px;
+}
+
+.gender_input{
+    cursor: pointer;
+    width: 140px;
+}
+
+.active{
+    border: 1.5px solid black !important;
+}
+
+.error_message{
+    font-size: 14px;
+    color: red;
+    margin: 0;
+}
+
+.signup_para{
+    margin: 0;
+}

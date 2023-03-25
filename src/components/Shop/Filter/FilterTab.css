@@ -1,0 +1,22 @@
+.outlined-input {
+    border-radius: 8px;
+    font-size: 14px;
+    height: 36px;
+    width: 100px;
+  }
+
+  
+  .css-2m9kme-MuiFormControl-root{
+    width: 100px !important;
+  }
+
+  .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root{
+    border-radius:60px !important ;
+  }
+
+  .input_label{
+    margin-top: 0 !important;
+    transform: translateY(-50%);
+    top: 50%;
+  }
+

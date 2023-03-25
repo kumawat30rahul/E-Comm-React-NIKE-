@@ -1,0 +1,28 @@
+.filters{
+    height: auto;
+    
+}
+
+.filter_btn{
+    position: absolute;
+    top: 90px;
+    right: 20px;
+}
+
+.filter_input{
+    display: flex;
+
+}
+
+.filterDisplay{
+    padding: 10px;
+}
+
+@media (max-width: 600px){
+    .filter_input{
+        overflow-x: scroll;
+    }
+    .filter_btn{
+        display: none;
+    }
+}

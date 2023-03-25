@@ -6,7 +6,7 @@
     justify-content: space-between;
 }
 
-ul{
+.main_contents>ul{
     list-style: none;
     display: flex;
     margin: 0;
@@ -43,11 +43,11 @@ ul{
     transition-delay: 0.3s;
 
 }
-li:hover {
+.main_contents>ul>li:hover {
     border-bottom: 4px solid black;
 
 }
-li:hover .mega_menu{
+.main_contents>ul>li:hover .mega_menu{
     visibility: visible;
     transition-delay: 0.1s;
 }
