@@ -9,7 +9,7 @@ import CommonCard from './CommonCard';
 import "slick-carousel/slick/slick.css";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import {Link,useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 
 

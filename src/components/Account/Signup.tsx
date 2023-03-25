@@ -10,66 +10,146 @@ function Signup() {
     confirmPassword: '',
     gender: '',
   })
-  const [error,setError] = useState(false);
-
+  const [error,setError] = useState({
+    fullName: false,
+    emailId: false,
+    yourPassword: false,
+    confirmPassword: false,
+    gender: false,
+  });
   const handleGenderClick = (selectedGender:any) => {
     setGender(selectedGender);
-  }
-  const handleInput =(e:any)=>{
-    const {id,value} = e.target
     setFormData((prevData)=>({
       ...prevData,
-      [id]: value,
+      gender:selectedGender,
+    }))
+    setError((prevData)=>({
+      ...prevData,
+      gender: false,
     }))
   }
 
-  const emailRegex = /^\S+@\S+\.\S+$/;
+  const emailRegex= /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   const nameRegex = /^[a-zA-Z ]{2,}$/;
 
-  const formSubmitHandler =(e:any)=>{
-    e.preventDefault()
-    let formIsValid = true;
-
-    if(!formData.fullName){
-      formIsValid = false;
-      setError(true);
+  const validateName=(event:any)=>{
+    const {id,value} = event.target
+    if(!nameRegex.test(event.target.value)){
+      setError((prevData)=>({
+        ...prevData,
+        [id]: true,
+      }))
+    }else{
+      setError((prevData)=>({
+        ...prevData,
+        [id]: false,
+      }))
+      setFormData((prevData)=>({
+        ...prevData,
+        [id]: value,
+      }))
     }
-    if(!emailRegex.test(formData.emailId)){
-      formIsValid = false;
-      setError(true);
+  }    
+  const validateEmail=(event:any)=>{
+    const {id,value} = event.target
+    if(!emailRegex.test(event.target.value)){
+      setError((prevData)=>({
+        ...prevData,
+        [id]: true,
+      }))
+    }else{
+      setError((prevData)=>({
+        ...prevData,
+        [id]: false,
+      }))
+      setFormData((prevData)=>({
+        ...prevData,
+          [id]: value,
+      }))
     }
-    if (!nameRegex.test(formData.fullName)) {
-      setError(true);
-      formIsValid = false;
+  }  
+  const validatePasword=(event:any)=>{
+    event.preventDefault();
+    const {id,value} = event.target
+    if((event.target.value).length < 8){
+      setError((prevData)=>({
+        ...prevData,
+        [id]: true,
+      }))
+    }else{
+      setError((prevData)=>({
+        ...prevData,
+        [id]: false,
+      }))
+      setFormData((prevData)=>({
+        ...prevData,
+          [id]: value,
+      }))
     }
-    if (formData.yourPassword.length < 8) {
-      setError(true);
-      formIsValid = false;
-    }
-    if (formData.yourPassword !== formData.confirmPassword) {
-      setError(true);
-      formIsValid = false;
-    }
-    if (formIsValid) {
-      localStorage.setItem('signup_data', JSON.stringify(formData))
-      setError(false);
-      alert("Succesfuly SignedUp")
-      window.location.href = '/shop'
+  }  
+  const validateConfirmPassword=(event:any)=>{
+    const {id,value} = event.target
+    if(event.target.value !== formData.yourPassword ){
+      setError((prevData)=>({
+        ...prevData,
+        [id]: true,
+      }))
+    }else{
+      setError((prevData)=>({
+        ...prevData,
+        [id]: false,
+      }))
+      setFormData((prevData)=>({
+        ...prevData,
+          [id]: value,
+      }))
     }
   }
+
+  const formSubmit = (e:any) => {
+    e.preventDefault();
+    if(!error.confirmPassword && 
+      !error.fullName && 
+      !error.emailId && 
+      !error.gender && 
+      !error.yourPassword && 
+      !error.gender &&
+      formData.fullName !== "" &&
+      formData.emailId !== "" &&
+      formData.yourPassword !== "" &&
+      formData.confirmPassword !== "" &&
+      formData.gender !== ""){
+      alert("Successfully SignedUp")
+      window.location.href = '/login'
+      setFormData((prevData)=>({
+        ...prevData,
+        gender: gender,
+      }))
+      localStorage.setItem('signed_up_data',JSON.stringify(formData))
+    }else{
+      alert("Provide Valid Details")
+      setError((prevData)=>({
+        ...prevData,
+      }))
+    }
+  }
+
   return (
     <div className='signup_wrapper'>
-      <form className="form" onSubmit={formSubmitHandler}>
+      <form className="form" >
         <h1 className='sign_up_title'>BECOME A MEMBER</h1>
         <p className='signup_para'>Create your profile and get acess to premium products</p>
-        <input type='email' placeholder='Email Id' className='email_id' id='emailId' onChange={handleInput} />
-        {error && !formData.fullName && <p className='error_message fullname_error'>Please provide a valid name.</p>}
-        <input type='text' placeholder='Full Name' className='full_name' id='fullName' onChange={handleInput} />
-        {error && !emailRegex.test(formData.emailId) && <p className='error_message email_error'>Please provide a valid email id.</p>}
-        <input type='password' placeholder='Your Password' className='your_password' id='yourPassword' onChange={handleInput} />
-        {error && formData.yourPassword.length < 8 && <p className='error_message password_error'>Password does not meet minimum requirements.</p>}
-        <input type='password' placeholder='Confirm Password' className='confirm_password' id='confirmPassword' onChange={handleInput} />
-        {error && formData.yourPassword !== formData.confirmPassword && <p className='error_message confirmpass_error'>Password does not match.</p>}
+        <input type='email' placeholder='Email Id' className='email_id' id='emailId' onChange={validateEmail}/>
+         {error.emailId && <p className='error_message email_error'>Please provide a valid email id.</p>}
+
+        <input type='text' placeholder='Full Name' className='full_name' id='fullName' onChange={validateName}/>
+        {error.fullName && <p className='error_message fullname_error'>Please provide a valid name. Name must be 2 words</p>}
+
+        <input type='password' placeholder='Your Password' className='your_password' id='yourPassword' onChange={validatePasword} />
+       {error.yourPassword && <p className='error_message password_error'>Password does not meet minimum requirements.</p>}
+
+        <input type='password' placeholder='Confirm Password' className='confirm_password' id='confirmPassword'  onChange={validateConfirmPassword}/>
+       {error.confirmPassword && <p className='error_message confirmpass_error'>Password does not match.</p>}
         <div className='gender'>
           <div className="male">
             <input
@@ -88,7 +168,9 @@ function Signup() {
             <span>Female</span>
           </div>
         </div>
-        <button type="submit">REGISTER</button>
+       {error.gender && <p className='error_message confirmpass_error'>Select Gender.</p>}
+
+        <button type="submit" onClick={formSubmit}>REGISTER</button>
       </form>
     </div>
   )

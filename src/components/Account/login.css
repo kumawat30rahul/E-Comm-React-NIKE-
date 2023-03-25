@@ -20,3 +20,12 @@
 label,.forgot{
     font-size: 12px;
 }
+
+.form > h1{
+    text-align: center;
+}
+
+.login_error{
+    color: red;
+    font-size: 12px;
+}
