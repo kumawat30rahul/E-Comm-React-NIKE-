@@ -1,10 +1,11 @@
 import React,{useState,useEffect} from 'react'
 import './Cart.css'
-import { getDatabase, ref, onValue,query, orderByChild, equalTo, remove, get } from 'firebase/database';
+import { getDatabase, ref, onValue, remove, get } from 'firebase/database';
 import { initializeApp } from "firebase/app";
 import {firebaseConfig} from '../firebase/index'
 
 
+const app = initializeApp(firebaseConfig);
 
 function Cart(){
     const [data,setData] = useState<any[]>([])
@@ -21,7 +22,6 @@ function Cart(){
             setData(newData ? Object.values(newData) : []);
           });
         }, []);
-    const app = initializeApp(firebaseConfig);
 
         const subtotalValue = ()=>{
             if(data.length > 0){
@@ -69,9 +69,16 @@ function Cart(){
         const deletingProduct=  (e:any)=>{
             const {id} = e.target
             
-            const db = getDatabase();
-            const cartRef = ref(db, 'Cart');
-            
+            const database = getDatabase();
+            const cartRef = ref(database, `Cart/${id}`);
+            // const childRef = ref(cartRef, id);
+            remove(cartRef)
+                .then(() => {
+                    console.log("Child node deleted successfully.");
+                })
+                .catch((error) => {
+                    console.error("Error deleting child node:", error);
+                });
         }
         useEffect(()=>{
             subtotalValue();
