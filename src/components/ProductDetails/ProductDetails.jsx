@@ -44,6 +44,7 @@ const ProductDetails =()=>{
         }
     }
 
+    // let x = 1;
     const addingTocart=(product)=>{
         if(logedIn){
             let newProduct = {
@@ -51,7 +52,7 @@ const ProductDetails =()=>{
                 quantity: 1,
             }
             alert("Added Succesfully");
-            cartRef.push(newProduct)
+            cartRef.child(product.id).set(newProduct)
         }else{
             alert('Please Log in before adding to cart')
             window.location.href='/login'

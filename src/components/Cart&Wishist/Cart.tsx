@@ -50,6 +50,8 @@ function Cart(){
                     }
                 }
             })
+            console.log(newData);
+            
             setData(newData);
         }
         const totalHandler =()=>{
@@ -64,13 +66,12 @@ function Cart(){
             }
         }
 
-        const deletingProduct= async (e:any)=>{
+        const deletingProduct=  (e:any)=>{
             const {id} = e.target
+            
             const db = getDatabase();
             const cartRef = ref(db, 'Cart');
-            const cartQuery = query(cartRef, orderByChild('id'), equalTo(id));
-            const cartToDeleteRef = await get(cartQuery);
-            // remove(cartToDeleteRef);
+            
         }
         useEffect(()=>{
             subtotalValue();
@@ -102,7 +103,7 @@ function Cart(){
                                      <input type="number"  className='cart_quantity' value={product.quantity} min="1" id={product.id} onChange={updateQuantity}/>
                                  </div>
                                  <div className="delete">
-                                     <button className="delete_btn btn">Delete</button>
+                                     <button className="delete_btn btn" id={product.id} onClick={deletingProduct}>Delete</button>
                                  </div>
                              </div>
                          </div>
