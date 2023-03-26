@@ -23,7 +23,7 @@ function Cart(){
         const totalValue = ()=>{
             if(data.length > 0){
                 const money = data.reduce((sum,item)=> {
-                    return sum +Number(item.price)},0 )
+                    return sum +(Number(item.price)*Number(item.quantity))},0 )
                 
                 setTotalMoney(money)
             }
@@ -31,16 +31,23 @@ function Cart(){
         const updateQuantity=(e:any)=>{
             const {id,value} = e.target;
             const newData = data.map((product)=>{
-                return {
-                    ...product,
-                    quantity: value;
+                if(id === product.id){
+                    return {
+                        ...product,
+                        price: product.price ,
+                        quantity: value,
+                    }
+                }else{
+                    return {
+                        ...product,
+                        // quantity: 1,
+                    }
                 }
             })
             setData(newData);
         }
         useEffect(()=>{
             totalValue();
-            console.log(totalMoney, typeof totalMoney);
         },[data])
 
 

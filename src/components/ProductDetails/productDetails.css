@@ -146,7 +146,7 @@
 
   .active{
     background-color: white;
-    border: 0.5px solid green;
+    border: 5px solid green;
   }
 
   @media (max-width: 768px){

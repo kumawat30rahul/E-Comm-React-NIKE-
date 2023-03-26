@@ -46,11 +46,12 @@ const ProductDetails =()=>{
 
     const addingTocart=(product)=>{
         if(logedIn){
-            alert("Added Succesfully");
-            cartRef.push({
+            let newProduct = {
                 ...product,
-                'Size': sizeSelect,
-            })
+                quantity: 1,
+            }
+            alert("Added Succesfully");
+            cartRef.push(newProduct)
         }else{
             alert('Please Log in before adding to cart')
             window.location.href='/login'
