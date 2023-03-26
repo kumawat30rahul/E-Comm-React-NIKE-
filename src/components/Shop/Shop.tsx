@@ -14,7 +14,7 @@ const Shop = () => {
                 <Filter />
             </div>
             <div className='products_shop'>
-                <h1 className='shop_title'>Mens</h1>
+                <h1 className='shop_title'>{category}</h1>
                 <ShoppingProduct category={category}/>
             </div>
         </div>
