@@ -9,8 +9,6 @@ import {firebaseConfig} from '../firebase/index'
 function Cart(){
     const [data,setData] = useState<any[]>([])
     const [totalMoney,setTotalMoney] = useState<any>()
-    const [quantity,setQuantity] = useState<any>(1)
-    // const []
 
     useEffect(() => {
           const db = getDatabase();
@@ -30,25 +28,22 @@ function Cart(){
                 setTotalMoney(money)
             }
         }
+        const updateQuantity=(e:any)=>{
+            const {id,value} = e.target;
+            const newData = data.map((product)=>{
+                return {
+                    ...product,
+                    quantity: value;
+                }
+            })
+            setData(newData);
+        }
         useEffect(()=>{
             totalValue();
             console.log(totalMoney, typeof totalMoney);
         },[data])
 
-        const quantityHandler =(e:any) => {
-            const {id} = e.target
-            console.log(id);
-            // if(data.length> 0){
-                
-            //     data.forEach((product)=>{
-            //         console.log(product.id);
-            //         if(id === product.id){
-            //             setQuantity(parseInt(e.target.value));
-            //         }
-            //     })
-            // }
-        }
-       
+
     return (
         <div className='cart_checkout'>
                      <div className='cart'>
@@ -62,13 +57,13 @@ function Cart(){
                              <div className='cart_card_info'>
                                  <div className='cart_main_info'>
                                      <h3 className='cart_card_title'>{product.title}</h3>
-                                     <p className='cart_price'>MRP: <strong>$ {product.price * quantity}</strong></p>
+                                     <p className='cart_price'>MRP: <strong>$ {Number(product.price) * Number(product.quantity)}</strong></p>
                                  </div>
                                  <p className='cart_type'>Turf shoes</p>
                                  <div className='size_quantity'>
                                      <p className='cart_size'>Size:</p>
                                      <label htmlFor='cart_quantity'  className='label'>Quantity</label>
-                                     <input type="number"  className='cart_quantity' min="1" id={product.id} value={quantity} onChange={quantityHandler}/>
+                                     <input type="number"  className='cart_quantity' min="1" id={product.id} onChange={updateQuantity}/>
                                  </div>
                                  <div className="delete">
                                      <button className="delete_btn btn">Delete</button>
