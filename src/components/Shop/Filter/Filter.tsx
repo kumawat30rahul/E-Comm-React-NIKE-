@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import FilterTab from './FilterTab';
 import './Filter.css'
 import Chip from '@mui/material/Chip';
@@ -12,7 +12,11 @@ const Filter =()=>{
         const {id} = e.target
         setFilterArrays((prevFilterArray: any[]) => prevFilterArray.filter(filter => filter !== id))
    };
-
+   useEffect(()=>{
+         // const newFilterArray = Array.from(filterArrays) 
+        console.log(filterArrays)    
+      // setFilterArrays(newFilterArray);
+   },[filterArrays])
 
  return (
     <div className='filters'>

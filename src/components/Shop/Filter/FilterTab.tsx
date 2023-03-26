@@ -29,6 +29,7 @@ function getStyles(name: string, personName: string[], theme: Theme) {
         : theme.typography.fontWeightMedium,
   };
 }
+let mySet = new Set<any>([]);
 
 export default function FilterTab({filterArray,name}:any) {
   const names = [
@@ -43,14 +44,17 @@ export default function FilterTab({filterArray,name}:any) {
     const {
       target: { value },
     } = event;
+    console.log("value",value);
+    for(let i = 0;i<value.length;i++){
+      mySet.add(value[i])
+    }
+    console.log(mySet);
+    
     setPersonName(
       // On autofill we get a stringified value.
       typeof value === 'string' ? value.split(',') : value,
     );
-    setFilterArrays([
-      ...filterArrays,
-      value,
-    ])
+    setFilterArrays([...mySet])
   };
   useEffect(()=>{
     // arrayofFilters(filterArrays)

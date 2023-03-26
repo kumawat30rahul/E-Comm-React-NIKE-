@@ -16,6 +16,7 @@
 
 .filterDisplay{
     padding: 10px;
+    overflow-x: scroll;
 }
 
 @media (max-width: 600px){

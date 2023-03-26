@@ -23,11 +23,7 @@ function ShoppingProduct({category}:any) {
             }
           });
         }, [filterData,data]);
-        useEffect(()=>{
-          console.log("asdf",filterData);
-          console.log("sdfasdfasdfasdf",data);
-          
-        },[])
+        
     const app = initializeApp(firebaseConfig);
   
 
