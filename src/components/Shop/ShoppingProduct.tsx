@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 
 function ShoppingProduct() {
   const [data,setData] = useState<any[]>([])
-  const [productData,setProductData] = useState<any[]>([])
   useEffect(() => {
           const db = getDatabase();
           const dbRef = ref(db, 'AllProducts');
@@ -23,8 +22,7 @@ function ShoppingProduct() {
   const navigate = useNavigate();
 
   const navigationHandler=(cardData:any)=>{
-    setProductData(cardData)
-    navigate(`/prouctDetail/${cardData.id}`,{state: {cardData}})
+    navigate(`/productDetail/${cardData.id}`,{state: {cardData}})
   }
   return (
     <div className='card_wrapper'>

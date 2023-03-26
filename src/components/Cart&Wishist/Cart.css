@@ -31,9 +31,10 @@
     background-color: blue;
     display: flex;
     align-items: center;
+    background-size: contain;
 }
 .cart_image{
-    height: 100%;
+    height: auto;
     width: 100%;
 }
 

@@ -8,15 +8,55 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import CommonSlider from '../Home/Slider/CommonSlider';
+import { firebaseConfig } from '../firebase';
+
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/database';
+
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
+const cartRef = database.ref('Cart');
 
 const ProductDetails =()=>{
+    console.log(cartRef);
     const location = useLocation();
     const {cardData} = location.state
-    const [thumbsSwiper, setThumbsSwiper] = useState(null);
-    const [sizeSelect,setSizeSelect] = useState(false);
 
+    const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
+    const [sizeSelect,setSizeSelect] = useState(null);
+    const [logedIn,setLogedIn] = useState(false);
+
+    const localLogedIn = localStorage.getItem('logedin_data')
+    const sessionLogedIn = sessionStorage.getItem('logedin_data')
+
+    useEffect(()=>{
+        if(localLogedIn || sessionLogedIn){
+            setLogedIn(true);
+        }
+    },[])
     const shoesSize= [6,6.5,7,7.5,8,8.5,9,9.5,10,10.5,11]
-    
+    const sizeSelection =(size)=>{
+        if(sizeSelect === size){
+            setSizeSelect(null)
+        }else{
+            setSizeSelect(size)
+        }
+    }
+
+    const addingTocart=(product)=>{
+        if(logedIn){
+            alert("Added Succesfully");
+            cartRef.push({
+                ...product,
+                'Size': sizeSelect,
+            })
+        }else{
+            alert('Please Log in before adding to cart')
+            window.location.href='/login'
+        }
+    }
+
     return(
         <>
         <div className='prdt_details'>
@@ -31,7 +71,7 @@ const ProductDetails =()=>{
                 >
                     {cardData && cardData.images && cardData.images.map((image,index)=>(
                         <SwiperSlide>
-                            <img src={image} />
+                            <img src={image} alt='' />
                         </SwiperSlide>
                     ))}
                 </Swiper>
@@ -47,7 +87,7 @@ const ProductDetails =()=>{
                 >
                     {cardData && cardData.images && cardData.images.map((image,index)=>(
                         <SwiperSlide className='small_slide'>
-                        <img src={image} className='small_slide_image' />
+                        <img src={image} className='small_slide_image' alt='' />
                         </SwiperSlide>
                     ))}
                         
@@ -61,11 +101,11 @@ const ProductDetails =()=>{
                 <h3 className='size_title'>Select Size</h3>
                 <div className='sizes'>
                     {shoesSize.map((size)=>(
-                        <button type="text" name='shoeSize' onClick={()=>setSizeSelect(!sizeSelect)} className={`shoe-size ${sizeSelect ? 'active' : ''}`}>{`UK/IN ${size}`}</button>
+                        <button type="text" name='shoeSize' onClick={()=>sizeSelection(size)} className={`shoe-size ${sizeSelect === size ? 'active' : ''}`}>{`UK/IN ${size}`}</button>
                     ))}
                 </div>
                 </div>
-                <button className="buy-btn btn">Add to Cart</button>
+                <button className="buy-btn btn" onClick={()=>addingTocart(cardData)}>Add to Cart</button>
                 <button className="wishlist-btn btn">Add to Fav</button>
                 <p className='prdt-desc'>{cardData.description}</p>
             </div>

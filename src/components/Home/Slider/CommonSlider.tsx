@@ -14,12 +14,12 @@ import {useNavigate} from 'react-router-dom'
 
 
 function CommonSlider({title,jsonName,slides}:any) {
-  const [data,setData] = useState<any[]>([])
   const [prdtDetail,setPrdtDetail] = useState<any>();
-  
-  
   const navigate = useNavigate();
-
+  
+  
+  
+  const [data,setData] = useState<any[]>([])
    useEffect(() => {
          const db = getDatabase();
          const dbRef = ref(db, jsonName);

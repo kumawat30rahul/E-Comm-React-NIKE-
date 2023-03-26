@@ -4,6 +4,7 @@
 }
 
 .card_wrapper > .card{
+    cursor: pointer;
     width: 20vw !important;
     min-height: 20vw;
     /* margin-bottom: 100px; */
