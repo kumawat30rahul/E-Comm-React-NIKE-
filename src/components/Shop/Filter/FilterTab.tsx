@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React,{useEffect, useState, useContext} from 'react';
 import { Theme, useTheme } from '@mui/material/styles';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
@@ -6,6 +6,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import './FilterTab.css'
+import {FilterProvider} from '../Shop'
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -35,6 +36,8 @@ export default function FilterTab({filterArray,name}:any) {
   ];
   const theme = useTheme();
   const [personName, setPersonName] = React.useState<string[]>([]);
+  
+  const {filterArrays, setFilterArrays} = useContext(FilterProvider);
 
   const handleChange = (event: SelectChangeEvent<typeof personName>) => {
     const {
@@ -44,7 +47,16 @@ export default function FilterTab({filterArray,name}:any) {
       // On autofill we get a stringified value.
       typeof value === 'string' ? value.split(',') : value,
     );
+    setFilterArrays([
+      ...filterArrays,
+      value,
+    ])
   };
+  useEffect(()=>{
+    // arrayofFilters(filterArrays)
+    console.log(filterArrays);
+    
+  },[filterArrays])
 
   return (
     <div>
