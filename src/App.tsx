@@ -25,7 +25,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/fav" element={<Fav />} />
-        <Route path="/shop" element={<Shop />} />
+        <Route path="/shop/:category" element={<Shop />} />
       </Routes>
     </BrowserRouter>
   );

@@ -2,12 +2,12 @@ import React from 'react';
 import Filter from './Filter/Filter';
 import ShoppingProduct from './ShoppingProduct';
 import './Shop.css'
-
+import { useParams } from 'react-router-dom';
 
 
 
 const Shop = () => {
-
+    const {category} = useParams();
     return (
         <div className='shop'>
             <div className='filters_shop'>
@@ -15,7 +15,7 @@ const Shop = () => {
             </div>
             <div className='products_shop'>
                 <h1 className='shop_title'>Mens</h1>
-                <ShoppingProduct />
+                <ShoppingProduct category={category}/>
             </div>
         </div>
     )

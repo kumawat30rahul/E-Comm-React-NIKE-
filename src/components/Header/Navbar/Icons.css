@@ -9,7 +9,10 @@
     align-items: center;
     justify-content: space-between;
 }
-
+.icon_link{
+    text-decoration: none;
+    color: black;
+}
 @media (max-width: 960px) {
     .main_icons{
         display:flex;

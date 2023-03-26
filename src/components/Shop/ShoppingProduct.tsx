@@ -5,16 +5,29 @@ import { initializeApp } from "firebase/app";
 import {firebaseConfig} from '../firebase/index'
 import { useNavigate } from 'react-router-dom';
 
-function ShoppingProduct() {
+function ShoppingProduct({category}:any) {
   const [data,setData] = useState<any[]>([])
+  const [filterData,setFilterData] = useState<any[]>([])
   useEffect(() => {
           const db = getDatabase();
           const dbRef = ref(db, 'AllProducts');
           onValue(dbRef, (snapshot) => {
             let newData = snapshot.val();
             setData(newData);
+            if(category !== 'AllProducts'){
+              newData = newData.filter((product:any) => product.mainCategory.includes(category))
+              
+              setFilterData(newData)
+            }else{
+              setFilterData(newData)
+            }
           });
-        }, []);
+        }, [filterData,data]);
+        useEffect(()=>{
+          console.log("asdf",filterData);
+          console.log("sdfasdfasdfasdf",data);
+          
+        },[])
     const app = initializeApp(firebaseConfig);
   
 
@@ -26,7 +39,7 @@ function ShoppingProduct() {
   }
   return (
     <div className='card_wrapper'>
-      {data && data.map((product)=>(
+      {data && filterData.map((product)=>(
         <div className='card' onClick={()=>navigationHandler(product)}>
           <div className='card_shop_image'>
             <img src={product.images[0]} alt='' className='shop_image'/>
