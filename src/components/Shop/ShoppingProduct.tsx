@@ -11,7 +11,7 @@ function ShoppingProduct({ category }: any) {
   const [data, setData] = useState<any[]>([])
   const [filterData, setFilterData] = useState<any[]>([])
 
-  const { filterArrays, setFilterArrays } = useContext(FilterProvider)
+  const { filterArrays } = useContext(FilterProvider)
 
 
   useEffect(() => {
@@ -22,21 +22,12 @@ function ShoppingProduct({ category }: any) {
       setData(newData);
       if (category !== 'AllProducts') {
         newData = newData.filter((product: any) => product.mainCategory.includes(category))
-
+      } 
         setFilterData(newData)
-      } else {
-        setFilterData(newData)
-      }
     });
-  }, [category]);
+  }, [category,data]);
 
   const app = initializeApp(firebaseConfig);
-
-  useEffect(() => {
-    console.log(filterArrays);
-
-  }, [filterArrays])
-
 
   const filterFunction = () => {
 
@@ -96,7 +87,7 @@ function ShoppingProduct({ category }: any) {
   }
   return (
     <div className='card_wrapper'>
-      {filterData && filterData.map((product) => (
+      {filterData && filterData.length > 0 && filterData.map((product) => (
         <div className='card' onClick={() => navigationHandler(product)}>
           <div className='card_shop_image'>
             <img src={product.images[0]} alt='' className='shop_image' />

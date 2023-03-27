@@ -39,19 +39,19 @@
     z-index: 99;
     position: absolute;
     top: 95px;
-    left: 0;
+    left: 45%;
     height: 400px;
-    width: 100%;
+    width: 20%;
     border-top: 1px solid rgba(94, 89, 89, 0.281);
     background-color: white;
     transition-delay: 0.3s;
 
 }
-.main_contents>ul>li:hover {
+.main_contents>ul>.contents_links>li:hover {
     border-bottom: 4px solid black;
 
 }
-.main_contents>ul>li:hover .mega_menu{
+.main_contents>ul>.contents_links>li:hover .mega_menu{
     visibility: visible;
     transition-delay: 0.1s;
 }
