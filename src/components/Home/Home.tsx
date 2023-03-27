@@ -47,7 +47,7 @@ const Home = () => {
           <CommonSlider 
             slides={[1.6,1.6,1.4,1.1,1.1]}
             title="Best of Womens"
-            jsonName='TrendingMens'
+            jsonName='TrendingWomens'
             />
         </div>
         </div>

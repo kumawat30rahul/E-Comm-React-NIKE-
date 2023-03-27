@@ -18,7 +18,6 @@ const database = firebase.database();
 const cartRef = database.ref('Cart');
 
 const ProductDetails =()=>{
-    console.log(cartRef);
     const location = useLocation();
     const {cardData} = location.state
 
@@ -26,6 +25,7 @@ const ProductDetails =()=>{
 
     const [sizeSelect,setSizeSelect] = useState(null);
     const [logedIn,setLogedIn] = useState(false);
+    const [sizes,setSizes] = useState([]);
 
     const localLogedIn = localStorage.getItem('logedin_data')
     const sessionLogedIn = sessionStorage.getItem('logedin_data')
@@ -35,7 +35,15 @@ const ProductDetails =()=>{
             setLogedIn(true);
         }
     },[])
-    const shoesSize= [6,6.5,7,7.5,8,8.5,9,9.5,10,10.5,11]
+
+    useEffect(()=>{
+        if(cardData.subCategory.includes('Shoes')){
+            setSizes([6,6.5,7,7.5,8,8.5,9,9.5,10,10.5,11])
+        }else{
+            setSizes(['XS','S','L','M','XL','XXL','XXXL'])
+        }
+    },[])
+    
     const sizeSelection =(size)=>{
         if(sizeSelect === size){
             setSizeSelect(null)
@@ -44,15 +52,22 @@ const ProductDetails =()=>{
         }
     }
 
+
+
     // let x = 1;
     const addingTocart=(product)=>{
         if(logedIn){
-            let newProduct = {
-                ...product,
-                quantity: 1,
+            if(sizeSelect !== null){
+                let newProduct = {
+                    ...product,
+                    quantity: 1,
+                    size: sizeSelect,
+                }
+                alert("Added Succesfully");
+                cartRef.child(product.id).set(newProduct)
+            }else{
+                alert('Select Proper Size')
             }
-            alert("Added Succesfully");
-            cartRef.child(product.id).set(newProduct)
         }else{
             alert('Please Log in before adding to cart')
             window.location.href='/login'
@@ -98,12 +113,12 @@ const ProductDetails =()=>{
             <div className='prdt_info'>
                 <h1 className='prdt-title'>{cardData.title}</h1>
                 <p className='prdt-type'>{cardData.type}</p>
-                <p className='prdt-Price'>MRP: <strong>${cardData.price}</strong></p>
+                <p className='prdt-Price'>MRP: <strong>${Number(cardData.price).toLocaleString('en-US', { minimumFractionDigits: 2 })}</strong></p>
                 <div className='selectSize'>
                 <h3 className='size_title'>Select Size</h3>
                 <div className='sizes'>
-                    {shoesSize.map((size)=>(
-                        <button type="text" name='shoeSize' onClick={()=>sizeSelection(size)} className={`shoe-size ${sizeSelect === size ? 'active' : ''}`}>{`UK/IN ${size}`}</button>
+                    {sizes.map((size)=>(
+                        <button type="text" name='shoeSize' onClick={()=>sizeSelection(size)} className={`shoe-size ${sizeSelect === size ? 'active' : ''}`}>{`${size}`}</button>
                     ))}
                 </div>
                 </div>

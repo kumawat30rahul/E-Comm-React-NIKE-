@@ -13,7 +13,7 @@ const [filterArrays,setFilterArrays] = useState([]);
     
     const {category} = useParams();
     return (
-        <FilterProvider.Provider value={{filterArrays,setFilterArrays,mySet}}>
+        <FilterProvider.Provider value={{filterArrays,setFilterArrays,mySet,category}}>
             <div className='shop'>
                 <div className='filters_shop'>
                     <Filter />
