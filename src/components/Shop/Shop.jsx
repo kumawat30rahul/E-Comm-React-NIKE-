@@ -6,13 +6,14 @@ import { useParams } from 'react-router-dom';
 
    
 export const FilterProvider = createContext();
+let mySet = new Set([]);
 
 const Shop = () => {
 const [filterArrays,setFilterArrays] = useState([]);
     
     const {category} = useParams();
     return (
-        <FilterProvider.Provider value={{filterArrays,setFilterArrays}}>
+        <FilterProvider.Provider value={{filterArrays,setFilterArrays,mySet}}>
             <div className='shop'>
                 <div className='filters_shop'>
                     <Filter />
