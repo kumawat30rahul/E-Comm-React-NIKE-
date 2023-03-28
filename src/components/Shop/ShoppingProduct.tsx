@@ -9,10 +9,8 @@ import { FilterProvider } from './Shop'
 const app = initializeApp(firebaseConfig);
 
 function ShoppingProduct() {
-  const [data, setData] = useState<any[]>([])
-  const [filterData, setFilterData] = useState<any[]>([])
 
-  const { filterArrays , category } = useContext(FilterProvider)
+  const { filterArrays , category ,filterData,setFilterData,data, setData} = useContext(FilterProvider)
 
 //--------fetching data--------------------------------------------------
   useEffect(() => {
@@ -26,12 +24,12 @@ function ShoppingProduct() {
       } 
         setFilterData(newData)
     });
-  }, [category,data]);
+  }, [category]);
 
 //filter function------------------------------------------------------------------------------
   const filterFunction = () => {
 
-    let filteredProduts = data
+    let filteredProduts = filterData
     if (filterArrays.length === 0) {
       setFilterData(data);
     } else {
@@ -50,7 +48,7 @@ function ShoppingProduct() {
       console.log("priceFilters", priceFilters)
 
       if (priceFilters && priceFilters.length > 0) {
-        filteredProduts = filteredProduts.filter(product => {
+        filteredProduts = filteredProduts.filter((product:any) => {
           return priceFilters.some((range: any) => {
             const [minPrice, maxPrice] = range.split("-").map((price: any) => parseFloat(price.replace("$", "")));
             console.log(minPrice, maxPrice);
@@ -63,7 +61,7 @@ function ShoppingProduct() {
       const ratingFilter = filterArrays.filter((filter: any) => filter.length === 3 && filter.includes('-'))
       console.log("ratingFilter", ratingFilter)
       if (ratingFilter && ratingFilter.length > 0) {
-        filteredProduts = filteredProduts.filter(product => {
+        filteredProduts = filteredProduts.filter((product:any) => {
           return ratingFilter.some((range: any) => {
             const [minRate, maxRate] = range.split("-")
             return parseFloat(product.rating) >= Number(minRate) && Number(product.rating) <= parseFloat(maxRate)
@@ -78,7 +76,9 @@ function ShoppingProduct() {
   }
 //-----------calling filter function-------------------------------------------------------------------
   useEffect(() => {
-    filterFunction();
+    if (filterArrays.length > 0) {
+      filterFunction();
+    }
   }, [filterArrays])
 
 
@@ -89,7 +89,7 @@ function ShoppingProduct() {
   }
   return (
     <div className='card_wrapper'>
-      {filterData && filterData.length > 0 && filterData.map((product) => (
+      {filterData && filterData.length > 0 && filterData.map((product:any) => (
         <div className='card' onClick={() => navigationHandler(product)}>
           <div className='card_shop_image'>
             <img src={product.images[0]} alt='' className='shop_image' />

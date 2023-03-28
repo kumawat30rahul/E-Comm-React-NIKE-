@@ -7,13 +7,14 @@ import { FilterProvider } from '../Shop'
 
 const Filter = () => {
   const [personName, setPersonName] = React.useState<string[]>([]);
-  const { filterArrays, setFilterArrays, mySet, category } = useContext(FilterProvider)
+  const { filterArrays, setFilterArrays, mySet, category,data, setData,setFilterData} = useContext(FilterProvider)
   const [shoeCategory,setShoeCategory] =  useState<any>(['XS', 'S', 'L', 'M', 'XL', 'XXL', 'XXL'])
   const mysetClear = () => {
     mySet.clear();
     const newSet = mySet
     setPersonName([...newSet])
     setFilterArrays([...newSet])
+    setFilterData([...data])
   }
 
   useEffect(() => {
