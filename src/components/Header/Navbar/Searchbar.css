@@ -15,8 +15,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
     
 }
+
 
 input{
     background-color: #eceff1;

@@ -32,6 +32,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-right: 20px;
     
 }
 
@@ -88,6 +89,7 @@ input:focus{
     }
 
     .icons{
+        
         height: 60px;
         width: auto;
     }
@@ -184,7 +186,6 @@ input:focus{
         height: 40px;
         width: 40px;
     }
-    
     
 }
 

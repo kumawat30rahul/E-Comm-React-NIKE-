@@ -15,8 +15,6 @@ function Navbar() {
 
   const sidebarHandler = () => {
     setOpenSidebar(!openSidebar)
-    console.log("wokring");
-    
   }
 
   return (
@@ -29,6 +27,9 @@ function Navbar() {
             <div className={`open_sidebar ${openSidebar ? 'active' : ''}`}>
               <div className='close_btn' onClick={sidebarHandler}>
                 <CloseIcon />
+              </div>
+              <div className="sidebar_contents">
+                <Contents />
               </div>
             </div>
           {openSidebar && 

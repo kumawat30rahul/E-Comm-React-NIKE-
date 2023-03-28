@@ -34,6 +34,9 @@
     font-weight: 900;
     font-size: 4rem;
     margin: -5px 0 0 0 ;
+    text-align: center;
+    line-height: 40px;
+    letter-spacing: -5px !important;
 }
 
 button{
@@ -120,11 +123,17 @@ button:hover{
     left: 10px;
     font-weight: 200;
 }
+
+.cat_links{
+    text-decoration: none;
+}
+
 @media (max-width: 600px){
     .home_image_description > h3{
         padding-left: 15px;
         font-size: 3rem;
         line-height: 30px;
+        text-align: start;
     }
     .home_image_description > p{
         padding-left: 15px;
