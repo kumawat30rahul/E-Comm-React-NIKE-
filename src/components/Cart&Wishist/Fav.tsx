@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Cart.css'
 import './Fav.css'
+import { firebaseConfig } from '../firebase';
 
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/database';
+
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
+const cartRef = database.ref('Cart');
 
 const Fav =() => {
+
+
+
+
     return (
         <div className='cart_checkout'>
             <div className='cart'>

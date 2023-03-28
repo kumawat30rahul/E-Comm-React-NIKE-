@@ -11,16 +11,16 @@ let mySet = new Set([]);
 const Shop = () => {
 const [filterArrays,setFilterArrays] = useState([]);
     
-    const {category} = useParams();
+    const {category,shop} = useParams();
     return (
-        <FilterProvider.Provider value={{filterArrays,setFilterArrays,mySet,category}}>
+        <FilterProvider.Provider value={{filterArrays,setFilterArrays,mySet,category,shop}}>
             <div className='shop'>
                 <div className='filters_shop'>
                     <Filter />
                 </div>
                 <div className='products_shop'>
                     <h1 className='shop_title'>{category}</h1>
-                    <ShoppingProduct category={category}/>
+                    <ShoppingProduct />
                 </div>
             </div>
         </FilterProvider.Provider>

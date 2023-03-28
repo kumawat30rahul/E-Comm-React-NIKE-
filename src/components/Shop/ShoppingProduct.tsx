@@ -6,14 +6,15 @@ import { firebaseConfig } from '../firebase/index'
 import { useNavigate } from 'react-router-dom';
 import { FilterProvider } from './Shop'
 
+const app = initializeApp(firebaseConfig);
 
-function ShoppingProduct({ category }: any) {
+function ShoppingProduct() {
   const [data, setData] = useState<any[]>([])
   const [filterData, setFilterData] = useState<any[]>([])
 
-  const { filterArrays } = useContext(FilterProvider)
+  const { filterArrays , category } = useContext(FilterProvider)
 
-
+//--------fetching data--------------------------------------------------
   useEffect(() => {
     const db = getDatabase();
     const dbRef = ref(db, 'AllProducts');
@@ -27,8 +28,7 @@ function ShoppingProduct({ category }: any) {
     });
   }, [category,data]);
 
-  const app = initializeApp(firebaseConfig);
-
+//filter function------------------------------------------------------------------------------
   const filterFunction = () => {
 
     let filteredProduts = data
@@ -76,10 +76,12 @@ function ShoppingProduct({ category }: any) {
 
     }
   }
-
+//-----------calling filter function-------------------------------------------------------------------
   useEffect(() => {
     filterFunction();
   }, [filterArrays])
+
+
   const navigate = useNavigate();
 
   const navigationHandler = (cardData: any) => {
