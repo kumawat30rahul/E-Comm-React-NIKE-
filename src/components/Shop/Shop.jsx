@@ -9,7 +9,7 @@ export const FilterProvider = createContext();
 let mySet = new Set([]);
 
 const Shop = () => {
-  const [data, setData] = useState([])
+const [data, setData] = useState([])
 const [filterArrays,setFilterArrays] = useState([]);
 const [filterData, setFilterData] = useState([])
 

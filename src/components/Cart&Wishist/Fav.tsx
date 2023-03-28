@@ -28,19 +28,11 @@ const Fav =() => {
         });
       }, []);
 
-      const deletingProduct=  (e:any)=>{
+      const deletingProduct = (e:any) => {
         const {id} = e.target
-        
         const database = getDatabase();
         const cartRef = ref(database, `Fav/${id}`);
-        // const childRef = ref(cartRef, id);
         remove(cartRef)
-            .then(() => {
-                console.log("Child node deleted successfully.");
-            })
-            .catch((error) => {
-                console.error("Error deleting child node:", error);
-            });
     }
 
     const addingTocart=(product:any)=>{
@@ -68,8 +60,8 @@ const Fav =() => {
                                 </div>
                                 <p className='cart_type'>{product.type}</p>
                                 <div className="delete">
-                                    <button className="delete_btn btn" onClick={deletingProduct}>Delete</button>
-                                    <button className="aaddtocart_btn delete_btn btn" onClick={addingTocart}>Add To Cart</button>
+                                    <button className="delete_btn btn" id={product.id} onClick={deletingProduct}>Delete</button>
+                                    <button className="aaddtocart_btn delete_btn btn" onClick={()=>addingTocart(product)}>Add To Cart</button>
                                 </div>
                             </div>
                         </div>
