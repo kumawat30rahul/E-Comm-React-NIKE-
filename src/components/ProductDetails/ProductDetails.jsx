@@ -73,7 +73,22 @@ const ProductDetails =()=>{
             window.location.href='/login'
         }
     }
-
+    const addingToFav=(product)=>{
+        if(logedIn){
+            if(sizeSelect !== null){
+                let newProduct = {
+                    ...product,
+                }
+                alert("Added Succesfully");
+                cartRef.child(product.id).set(newProduct)
+            }else{
+                alert('Select Proper Size')
+            }
+        }else{
+            alert('Please Log in before adding to cart')
+            window.location.href='/login'
+        }
+    }
     return(
         <>
         <div className='prdt_details'>
@@ -123,7 +138,7 @@ const ProductDetails =()=>{
                 </div>
                 </div>
                 <button className="buy-btn btn" onClick={()=>addingTocart(cardData)}>Add to Cart</button>
-                <button className="wishlist-btn btn">Add to Fav</button>
+                <button className="wishlist-btn btn" onClick={()=>addingToFav(cardData)}>Add to Fav</button>
                 <p className='prdt-desc'>{cardData.description}</p>
             </div>
         </div>
