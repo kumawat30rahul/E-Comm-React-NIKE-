@@ -9,11 +9,13 @@ export const FilterProvider = createContext();
 let mySet = new Set([]);
 
 const Shop = () => {
+const [data, setData] = useState([])
 const [filterArrays,setFilterArrays] = useState([]);
-    
+const [filterData, setFilterData] = useState([])
+
     const {category,shop} = useParams();
     return (
-        <FilterProvider.Provider value={{filterArrays,setFilterArrays,mySet,category,shop}}>
+        <FilterProvider.Provider value={{filterArrays,setFilterArrays,mySet,category,shop,setFilterData,filterData,data, setData}}>
             <div className='shop'>
                 <div className='filters_shop'>
                     <Filter />

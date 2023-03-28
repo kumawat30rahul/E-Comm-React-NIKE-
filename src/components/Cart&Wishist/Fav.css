@@ -67,7 +67,7 @@
     margin-top: 15px;
     height: 20px;
     font-size: 18px;
-    width: 150px;
+    width: auto !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -78,6 +78,11 @@
 
 .cart_title{
     font-weight: 400;
+}
+
+.delete{
+    display: flex;
+    gap: 10px;
 }
 
 @media (max-width:600px){

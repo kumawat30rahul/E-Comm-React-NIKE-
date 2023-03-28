@@ -9,7 +9,7 @@ import CommonCard from './CommonCard';
 import "slick-carousel/slick/slick.css";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 
 
@@ -90,8 +90,10 @@ function CommonSlider({title,jsonName,slides}:any) {
    return (
     <div className='slider_wrapper'>
       <div className="slider_info">
-        <p className="slider_title">{title}</p>
-        <p className='shop_button'>SHOP</p>
+        <p className="slider_title">Best of {title}</p>
+        <Link to={`/shop/${title}`} className="cat_links">
+         <p className='shop_button'>SHOP</p>
+        </Link>
       </div>
       <Slider {...settings} className='trending_slider'>
       {data && data.map( product =>(

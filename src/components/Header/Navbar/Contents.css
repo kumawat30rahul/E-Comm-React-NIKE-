@@ -39,21 +39,103 @@
     z-index: 99;
     position: absolute;
     top: 95px;
-    left: 45%;
-    height: 400px;
-    width: 20%;
+    left: 26.5%;
+    height: 160px;
+    width: 35.5%;
     border-top: 1px solid rgba(94, 89, 89, 0.281);
     background-color: white;
-    transition-delay: 0.3s;
+    border-bottom: 0.5px solid gray;
+}
 
+.mega_menu>ul{
+    list-style: none;
+    font-weight: 400;
+}
+
+.mega_menu>ul>li{
+    margin: 10px auto;
+    transition: font-size 250ms ease-out,letter-spacing 250ms ease-out;
+}
+.mega_menu>ul>li:hover{
+    font-size: 24px;
+    letter-spacing: 10px;
+    transition: font-size 250ms ease-out,letter-spacing 250ms ease-out;
+}
+
+.active{
+    visibility: visible;
+}
+
+.main_contents>ul>.contents_links>li{
+    transition: margin-bottom 250ms ease-out;
 }
 .main_contents>ul>.contents_links>li:hover {
     border-bottom: 4px solid black;
 
+
 }
 .main_contents>ul>.contents_links>li:hover .mega_menu{
     visibility: visible;
-    transition-delay: 0.1s;
 }
 
 
+@media (max-width: 960px){
+
+    .main_contents{
+        height: 200px;
+        margin-left: 20px;
+        align-items: start;
+        justify-content: start;
+        /* margin-top: 90px; */
+    }
+    .main_contents>ul{
+        flex-direction: column;
+        position: fixed;
+    }
+
+    .main_contents>ul>.contents_links>li:hover .mega_menu{
+        visibility: hidden;
+        height:auto;
+        position: relative;
+        left: -30px;
+        top: 92px;
+        border-bottom: none;
+        border-top:none;
+    }
+   
+
+    .three > .mega_menu {
+        position: relative;
+        left: -60px !important;
+        top: 92px !important;
+        width: 200px;
+        opacity: 1;
+        transition: opacity 650ms ease-out;
+
+    }
+    .mega_menu > ul {
+        padding-left: 20px;
+        width: 200px;
+        opacity: 1;
+        transition: opacity 650ms ease-out;
+    }
+    .activesubmenu{
+        visibility: visible !important;
+        opacity: 1;
+        transition: visibility 650ms ease-out;
+    }
+    .activeLi{
+        /* margin-top: 160px !important; */
+        margin-bottom: 155px !important;
+        transition: margin-bottom 250ms ease-out;
+    }
+
+    .mega_menu>ul>li:hover{
+        font-size: 18px;
+        letter-spacing: normal;
+        transition:none;
+    }
+    .one, .two, .three, .four, .five, .six{
+        height: 30px;
+    }
+}

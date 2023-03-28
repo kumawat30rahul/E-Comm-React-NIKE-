@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Home.css'
 import CommonSlider from './Slider/CommonSlider'
 
@@ -15,14 +16,13 @@ const Home = () => {
         <p>Extreme comfort. Hyper durable. Max volume. Introducing the Air Max Pulse</p>
         <p className='p2'>—designed to push you past your limits and help you go to the max.</p>
         <div className='btns'>
-          <button className="notify btn">Notify Me</button>
           <button className="buy btn">Shop Air Max</button>
         </div>
       </div>
       <div className='home_trend_slider'>
         <CommonSlider 
           slides={[3.2,3.2,2.8,2,1]}
-          title="Best of Shoes"
+          title="Shoes"
           jsonName='TrendingShoes'
           />
       </div>
@@ -39,14 +39,14 @@ const Home = () => {
         <div className='mens_slider'>
           <CommonSlider 
             slides={[1.6,1.6,1.4,1.1,1.1]}
-            title="Best of Mens"
+            title="Mens"
             jsonName='TrendingMens'
             />
         </div>
         <div className='womens_slider'>
           <CommonSlider 
             slides={[1.6,1.6,1.4,1.1,1.1]}
-            title="Best of Womens"
+            title="Womens"
             jsonName='TrendingWomens'
             />
         </div>
@@ -54,16 +54,22 @@ const Home = () => {
         <div className="shopping_categories">
           <h1>The Essentials</h1>
           <div className="mens_cat">
-            <img src="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_540,c_limit/d94bfa7e-9357-406a-a124-1940712dfa0b/nike-just-do-it.png" alt="" className='image_cat'/>
-            <button className='cat_shop_btn'>Mens</button>
+            <Link to={`/shop/Mens`} className="cat_links">
+              <img src="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_540,c_limit/d94bfa7e-9357-406a-a124-1940712dfa0b/nike-just-do-it.png" alt="" className='image_cat'/>
+              <button className='cat_shop_btn'>Mens</button>
+            </Link>
           </div>
           <div className="womens_cat">
-            <img src="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_540,c_limit/dc62b322-5c3f-4508-b21c-950683ed460f/nike-just-do-it.png" alt="" className='image_cat'/>
-            <button className='cat_shop_btn'>Womens</button>
+            <Link to={`/shop/Womens`} className="cat_links">
+              <img src="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_540,c_limit/dc62b322-5c3f-4508-b21c-950683ed460f/nike-just-do-it.png" alt="" className='image_cat'/>
+              <button className='cat_shop_btn'>Womens</button>
+            </Link>
           </div>
           <div className="kids_cat">
-            <img src="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_540,c_limit/58359474-a0de-4329-959c-55d1652d0912/nike-just-do-it.png" alt="" className='image_cat'/>
-            <button className='cat_shop_btn'>Kids</button>
+            <Link to={`/shop/Kids`} className="cat_links">
+              <img src="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_540,c_limit/58359474-a0de-4329-959c-55d1652d0912/nike-just-do-it.png" alt="" className='image_cat'/>
+              <button className='cat_shop_btn'>Kids</button>
+            </Link>
           </div>
       </div>
     </div>

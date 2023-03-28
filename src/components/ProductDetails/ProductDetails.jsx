@@ -16,6 +16,7 @@ import 'firebase/compat/database';
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 const cartRef = database.ref('Cart');
+const cartRef2 = database.ref('Fav');
 
 const ProductDetails =()=>{
     const location = useLocation();
@@ -29,6 +30,10 @@ const ProductDetails =()=>{
 
     const localLogedIn = localStorage.getItem('logedin_data')
     const sessionLogedIn = sessionStorage.getItem('logedin_data')
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
 
     useEffect(()=>{
         if(localLogedIn || sessionLogedIn){
@@ -78,9 +83,11 @@ const ProductDetails =()=>{
             if(sizeSelect !== null){
                 let newProduct = {
                     ...product,
+                    size: sizeSelect,
+                    quantity: 1,
                 }
                 alert("Added Succesfully");
-                cartRef.child(product.id).set(newProduct)
+                cartRef2.child(product.id).set(newProduct)
             }else{
                 alert('Select Proper Size')
             }
