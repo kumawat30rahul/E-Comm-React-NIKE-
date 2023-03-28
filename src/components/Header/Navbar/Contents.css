@@ -120,9 +120,14 @@
         transition: opacity 650ms ease-out;
     }
     .activesubmenu{
+        position: relative;
+        left: -30px;
+        top: 92px;
         visibility: visible !important;
         opacity: 1;
         transition: visibility 650ms ease-out;
+        border-bottom: none;
+        border-top:none;
     }
     .activeLi{
         /* margin-top: 160px !important; */

@@ -25,14 +25,13 @@
 .div_icon{
     background-color: rgba(100, 97, 102, 0.329);
     border-radius: 0 10px 10px 0;
-    height: 32px;
+    height: 30px;
     width:40px;
     font-size: 24px;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-right: 20px;
     
 }
 
@@ -83,11 +82,46 @@ input:focus{
 }
 
 
+.search_div{
+    position: absolute;
+    top: 90px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: lightgray;
+    z-index: 99999;
+    padding: 20px;
+}
+
+.search_results{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.search_results > .card{
+    cursor: pointer;
+    width: 20% !important;
+    height: auto;
+}
+
+.new_input{
+    display: none;
+    border-radius: 10px;
+    width: 100%;
+}
 @media (max-width: 960px) {
+
+    .new_input{
+        display: block;
+    }
     .content{
         display: none;
     }
 
+    .div_icon{
+        padding-right: 20px;
+    }
     .icons{
         
         height: 60px;
@@ -188,4 +222,28 @@ input:focus{
     }
     
 }
+@media (max-width: 768px){
+    .search_results > .card{
+        cursor: pointer;
+        width: 28% !important;
+        height: auto;
+    }
+}
+
+@media (max-width: 600px){
+    .search_results > .card{
+        cursor: pointer;
+        width: 45% !important;
+        height: auto;
+    }
+}
+
+@media (max-width: 500px){
+    .search_results > .card{
+        cursor: pointer;
+        width: 100% !important;
+        height: auto;
+    }
+}
+
 
