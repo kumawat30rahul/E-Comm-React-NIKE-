@@ -71,11 +71,11 @@ function Contents() {
                 </div>
               </li>
             </div>
-            <div className='contents_links'>
+            <Link to='/shop/AllProducts' className='contents_links'>
               <li className="five">
                 SHOP
               </li>
-            </div>
+            </Link>
           </ul>
           :
           <ul>
