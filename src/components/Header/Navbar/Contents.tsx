@@ -11,16 +11,19 @@ function Contents() {
           <Link to='/' className='contents_links'>
           <li className="one">
             HOME
-            <div className='mega_menu'>
-              MEGA MENU
-            </div>
           </li>
           </Link>
           <Link to={`/shop/Mens`} className='contents_links'>
           <li className="two">
             MENS
             <div className='mega_menu'>
-              MEGA MENU MENS
+              <ul>
+                <li>Shirts</li>
+                <li>T-Shirts</li>
+                <li>Joggers</li>
+                <li>Shoes</li>
+                <li>Football</li>
+              </ul>
             </div>
           </li>
           </Link>
@@ -28,24 +31,33 @@ function Contents() {
           <li className="three">
             WOMENS
             <div className='mega_menu'>
-              MEGA MENU WOMENS
-            </div>
+              <ul>
+                <li>Top</li>
+                <li>Pants and Leggings</li>
+                <li>Joggers</li>
+                <li>Shoes</li>
+                <li>Football</li>
+              </ul>
+              </div>
           </li>
           </Link>
           <Link to={`/shop/Kids`} className='contents_links'>
           <li className="four">
             KIDS
             <div className='mega_menu'>
-              MEGA MENU KIDS
+              <ul>
+                <li>Shirts</li>
+                <li>T-Shirts</li>
+                <li>Joggers</li>
+                <li>Shoes</li>
+                <li>Football</li>
+              </ul>
             </div>
           </li>
           </Link>
           <Link to={`/shop/AllProducts`} className='contents_links'>
           <li className="five">
             SHOP
-            <div className='mega_menu'>
-              MEGA MENU SHOP
-            </div>
           </li>
           </Link>
         </ul>

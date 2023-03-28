@@ -101,11 +101,15 @@ function Cart(){
                              <div className='cart_card_info'>
                                  <div className='cart_main_info'>
                                      <h3 className='cart_card_title'>{product.title}</h3>
-                                     <p className='cart_price'>MRP: <strong>$ {Number(product.price) * Number(product.quantity)}</strong></p>
+                                     <p className='cart_price'>MRP: 
+                                        <strong>$ 
+                                        {(Number(product.price) * Number(product.quantity)).toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                                        </strong>
+                                    </p>
                                  </div>
                                  <p className='cart_type'>Turf shoes</p>
                                  <div className='size_quantity'>
-                                     <p className='cart_size'>Size:</p>
+                                     <p className='cart_size'>Size: {product.size}</p>
                                      <label htmlFor='cart_quantity'  className='label'>Quantity</label>
                                      <input type="number"  className='cart_quantity' value={product.quantity} min="1" id={product.id} onChange={updateQuantity}/>
                                  </div>
@@ -121,7 +125,7 @@ function Cart(){
                 <h1 className="summary_title">Summary</h1>
                 <div className="subtotal">
                  <p className="subtotal_title">Subtotal</p>
-                 <p className="subtotal_Price">$ {totalMoney}</p>
+                 <p className="subtotal_Price">$ {(Number(totalMoney)).toLocaleString('en-US', { minimumFractionDigits: 2 })}</p>
                 </div>
                 <div className="delivery">
                     <p className="delivery_title">Estimated Delivery Price</p>
@@ -129,7 +133,7 @@ function Cart(){
                 </div>
                 <div className="total">
                     <p className="total_title">Total</p>
-                    <p className="total_Price">$ {total}</p>
+                    <p className="total_Price">$ {(Number(total)).toLocaleString('en-US', { minimumFractionDigits: 2 })}</p>
                 </div>
                 <button className='checkOut_btn btn'>CHECKOUT</button>
             </div>

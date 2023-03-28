@@ -1,29 +1,54 @@
 .filters{
     height: auto;
-    
+    background-color: rgba(128, 128, 128, 0.205);
+    padding: 10px 0 10px 0;
+}
+.filters>h3{
+    font-weight: 200;
+    padding-left: 20px;
 }
 
 .filter_btn{
     position: absolute;
-    top: 90px;
-    right: 20px;
+    top: 120px;
+    left: 75px;
+    height: auto;
+    padding: 5px 10px 5px 10px;
+    font-size: 15px;
 }
 
 .filter_input{
     display: flex;
+    overflow-x: hidden;
 
 }
 
 .filterDisplay{
     padding: 10px;
-    overflow-x: scroll;
+    overflow-x: hidden;
+}
+@media (max-width: 768px){
+   
+    .filter_btn{
+        font-size: 10px;
+        top: 115px;
+        left: 70px;
+    }
+
 }
 
 @media (max-width: 600px){
     .filter_input{
         overflow-x: scroll;
     }
-    .filter_btn{
-        display: none;
+    .filterDisplay{
+        padding: 10px;
+        overflow-x: scroll;
     }
+    .filter_btn{
+        font-size: 10px;
+        top: 118px;
+        left: 60px;
+    }
+
 }

@@ -83,7 +83,7 @@
 .delete_btn{
     height: 20px;
     font-size: 18px;
-    width: 150px;
+    width: 100px !important;
     display: flex;
     align-items: center;
     justify-content: center;
