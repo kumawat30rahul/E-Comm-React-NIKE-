@@ -32,7 +32,7 @@ function Contents() {
             <div className='contents_links'>
               <li className={`two ${activeSubmenu === "mens" ? 'activeLi' : ''}`} onClick={(e: any) => showSubmenu('mens', e)}>
                 MENS
-                <div className={`mega_menu mens ${activeSubmenu === "mens" ? 'activeSubmenu' : ''}`}>
+                <div className={`mega_menu mens ${activeSubmenu === "mens" ? 'activesubmenu' : ''}`}>
                   <ul>
                     <li>Shirts</li>
                     <li>T-Shirts</li>
@@ -46,7 +46,7 @@ function Contents() {
             <div className='contents_links'>
               <li className={`three ${activeSubmenu === "womens" ? 'activeLi' : ''}`} onClick={(e: any) => showSubmenu('womens', e)}>
                 WOMENS
-                <div className={`mega_menu womens ${activeSubmenu === "womens" ? 'activeSubmenu' : ''}`}>
+                <div className={`mega_menu womens ${activeSubmenu === "womens" ? 'activesubmenu' : ''}`}>
                   <ul>
                     <li>Top</li>
                     <li>Pants and Leggings</li>
@@ -60,7 +60,7 @@ function Contents() {
             <div className='contents_links'>
               <li className={`four ${activeSubmenu === "kids" ? 'activeLi' : ''}`} onClick={(e: any) => showSubmenu('kids', e)}>
                 KIDS
-                <div className={`mega_menu kids ${activeSubmenu === "kids" ? 'activeSubmenu' : ''}`} >
+                <div className={`mega_menu kids ${activeSubmenu === "kids" ? 'activesubmenu' : ''}`} >
                   <ul>
                     <li>Shirts</li>
                     <li>T-Shirts</li>
