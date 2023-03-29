@@ -14,20 +14,20 @@ function Icons() {
     setOpen(!open);
   };
 
-  useEffect(() => {
-    const handleOutsideClick = (event: MouseEvent) => {
-      const sidebar = document.querySelector('.dialog_account');
-      if (open && sidebar && !sidebar.contains(event.target as Node)) {
-        setOpen(false);
-      }
-    };
+  // useEffect(() => {
+  //   const handleOutsideClick = (event: MouseEvent) => {
+  //     const sidebar = document.querySelector('.dialog_account');
+  //     if (open && sidebar && !sidebar.contains(event.target as Node)) {
+  //       setOpen(false);
+  //     }
+  //   };
   
-    document.addEventListener('mousedown', handleOutsideClick);
+  //   document.addEventListener('mousedown', handleOutsideClick);
   
-    return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
-    };
-  }, [open]);
+  //   return () => {
+  //     document.removeEventListener('mousedown', handleOutsideClick);
+  //   };
+  // }, [open]);
 
   return (
     <div className='main_icons'>
