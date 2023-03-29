@@ -188,7 +188,7 @@ input:focus{
         width: 320px;
         background-color: white;
         box-shadow: 0 1 10px rgba(0, 0, 0, 0.253);
-        z-index: 9999 !important;
+        z-index: 99999999999 !important;
         transition: left 150ms ease-out;
     }
 
@@ -208,6 +208,7 @@ input:focus{
         opacity: 1;
         backdrop-filter: blur(10px);
         transition: opacity .8s ease,visibility 0s;
+        z-index: 99999;
 
     }
     .close_btn{

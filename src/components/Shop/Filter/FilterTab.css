@@ -6,11 +6,11 @@
   }
 
   
-  .css-2m9kme-MuiFormControl-root{
+  .formcontrol{
     width: 100px !important;
   }
 
-  .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root{
+  .selection{
     border-radius:60px !important ;
   }
 
@@ -19,4 +19,3 @@
     transform: translateY(-50%);
     top: 50%;
   }
-

@@ -58,7 +58,7 @@ export default function FilterTab({personName,setPersonName,filterArray,name}:an
   
   return (
     <div>
-      <FormControl sx={{ m: 1, width: 300 }}>
+      <FormControl sx={{ m: 1 }} className="formcontrol">
         <InputLabel id="demo-multiple-name-label" className='input_label'>{name}</InputLabel>
         <Select
           labelId="demo-multiple-name-label"
@@ -68,6 +68,7 @@ export default function FilterTab({personName,setPersonName,filterArray,name}:an
           onChange={handleChange}
           input={<OutlinedInput label="Name" classes={{ root: 'outlined-input' }}/>}
           MenuProps={MenuProps}
+          className='selection'
         >
           {names.map((name) => (
             <MenuItem

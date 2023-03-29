@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { useLocation } from 'react-router-dom'
+import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import {Swiper, SwiperSlide } from "swiper/react";
 import './productDetails.css'
 import "swiper/css";
@@ -17,6 +17,9 @@ firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 const cartRef = database.ref('Cart');
 const cartRef2 = database.ref('Fav');
+
+
+
 
 const ProductDetails =()=>{
     const location = useLocation();
@@ -58,7 +61,7 @@ const ProductDetails =()=>{
     }
 
 
-
+    const navigate = useNavigate()
     // let x = 1;
     const addingTocart=(product)=>{
         if(logedIn){
@@ -75,7 +78,7 @@ const ProductDetails =()=>{
             }
         }else{
             alert('Please Log in before adding to cart')
-            window.location.href='/login'
+            navigate('/login')
         }
     }
     const addingToFav=(product)=>{

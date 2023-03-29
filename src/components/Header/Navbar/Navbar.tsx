@@ -27,6 +27,25 @@ function Navbar() {
     setOpenSidebar(!openSidebar)
   }
 
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      const sidebar = document.querySelector('.open_sidebar');
+      const searchbar = document.querySelector('.search_div');
+      if (openSidebar && sidebar && !sidebar.contains(event.target as Node)) {
+        setOpenSidebar(false);
+      }
+      if (searchBar && searchbar && !searchbar.contains(event.target as Node)) {
+        openSearchBar(false);
+      }
+    };
+  
+    document.addEventListener('mousedown', handleOutsideClick);
+  
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [openSidebar,searchBar]);
+
   const searchBarHandler = () => {
     openSearchBar(true)
   }
