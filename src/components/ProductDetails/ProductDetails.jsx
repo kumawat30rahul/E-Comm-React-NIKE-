@@ -112,7 +112,7 @@ const ProductDetails =()=>{
                     className="mySwiper2"
                 >
                     {cardData && cardData.images && cardData.images.map((image,index)=>(
-                        <SwiperSlide>
+                        <SwiperSlide key={index}>
                             <img src={image} alt='' />
                         </SwiperSlide>
                     ))}
@@ -128,7 +128,7 @@ const ProductDetails =()=>{
                     className="mySwiper"
                 >
                     {cardData && cardData.images && cardData.images.map((image,index)=>(
-                        <SwiperSlide className='small_slide'>
+                        <SwiperSlide className='small_slide' key={index}>
                         <img src={image} className='small_slide_image' alt='' />
                         </SwiperSlide>
                     ))}
