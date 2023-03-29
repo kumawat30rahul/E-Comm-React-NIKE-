@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import './Cart.css'
-import { getDatabase, ref, onValue, remove, get } from 'firebase/database';
+import { getDatabase, ref, onValue, remove } from 'firebase/database';
 import { initializeApp } from "firebase/app";
 import {firebaseConfig} from '../firebase/index'
 
