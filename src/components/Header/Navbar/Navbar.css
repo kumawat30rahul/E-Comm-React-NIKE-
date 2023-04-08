@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 65px;
+    height: 60px;
     width: 100%;
     padding-right: 20px;
     background-color: white;
@@ -83,7 +83,6 @@ input:focus{
     display: none;
 }
 
-
 .search_div{
     position: absolute;
     top: 90px;
@@ -96,9 +95,14 @@ input:focus{
 }
 
 .search_results{
+    height: 100%;
+    width: 100%;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 50px;
+    overflow-y: scroll;
+    padding-bottom: 200px;
 }
 
 .search_results > .card{
@@ -111,6 +115,9 @@ input:focus{
     display: none;
     border-radius: 10px;
     width: 100%;
+}
+.overflow-hidden{
+    overflow: hidden;
 }
 @media (max-width: 960px) {
 
@@ -227,7 +234,6 @@ input:focus{
 }
 @media (max-width: 768px){
     .search_results > .card{
-        cursor: pointer;
         width: 28% !important;
         height: auto;
     }
@@ -235,17 +241,13 @@ input:focus{
 
 @media (max-width: 600px){
     .search_results > .card{
-        cursor: pointer;
         width: 45% !important;
-        height: auto;
     }
 }
 
 @media (max-width: 500px){
     .search_results > .card{
-        cursor: pointer;
         width: 100% !important;
-        height: auto;
     }
 }
 

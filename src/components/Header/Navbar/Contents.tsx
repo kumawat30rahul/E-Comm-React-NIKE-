@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import './Contents.css';
+import {motion} from 'framer-motion'
+import { duration } from '@mui/material';
 
 
 function Contents() {
@@ -32,7 +34,11 @@ function Contents() {
             <div className='contents_links'>
               <li className={`two ${activeSubmenu === "mens" ? 'activeLi' : ''}`} onClick={(e: any) => showSubmenu('mens', e)}>
                 MENS
-                <div className={`mega_menu mens ${activeSubmenu === "mens" ? 'activesubmenu' : ''}`}>
+                <motion.div 
+                  initial={{y:-50}}
+                  animate={{y:0}}
+                  transition={{duration:0.2}}
+                  className={`mega_menu mens ${activeSubmenu === "mens" ? 'activesubmenu' : ''}`}>
                   <ul>
                     <li>Shirts</li>
                     <li>T-Shirts</li>
@@ -40,7 +46,7 @@ function Contents() {
                     <li>Shoes</li>
                     <li>Football</li>
                   </ul>
-                </div>
+                </motion.div>
               </li>
             </div>
             <div className='contents_links'>

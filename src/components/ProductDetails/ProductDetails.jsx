@@ -11,6 +11,7 @@ import CommonSlider from '../Home/Slider/CommonSlider';
 import { firebaseConfig } from '../firebase';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/database';
@@ -152,7 +153,7 @@ const ProductDetails =()=>{
                 </div>
                 </div>
                 <button className="buy-btn btn" onClick={()=>addingTocart(cardData)}>Add to Cart</button>
-                <button className="wishlist-btn btn" onClick={()=>addingToFav(cardData)}>Add to Fav</button>
+                <button className="wishlist-btn btn" onClick={()=>addingToFav(cardData)}>Add to <FavoriteBorderRoundedIcon /></button>
                 <p className='prdt-desc'>{cardData.description}</p>
             </div>
         </div>

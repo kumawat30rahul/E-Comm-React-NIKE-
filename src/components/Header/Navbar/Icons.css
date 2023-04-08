@@ -19,7 +19,7 @@
     top: 100px;
     right: 30px;
     background-color: white;
-    height: 150px;
+    height: auto;
     width: 150px;
     box-shadow: 0 0 10px black;
     display: flex;
@@ -34,10 +34,10 @@
 .dialog_account >.account_link > p {
     text-align: center; 
     width: 100% !important;
-    border-top: 0.5px solid black;
+    /* border-top: 0.5px solid black; */
     border-bottom: 0.5px solid black;
     padding: 10px 0 10px 0;
-    background-color: #e5e5e5 !important;
+    /* background-color: #e5e5e5 !important; */
     margin: 0;
 }
 
@@ -46,9 +46,7 @@ background-color: #705b5b;
 color: white;
 font-weight: 400;
 }
-.second{
-    border: none !important;
-}
+
 
 .account_link{
     text-decoration: none;

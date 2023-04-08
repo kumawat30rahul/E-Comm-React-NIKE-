@@ -14,20 +14,20 @@ function Icons() {
     setOpen(!open);
   };
 
-  // useEffect(() => {
-  //   const handleOutsideClick = (event: MouseEvent) => {
-  //     const sidebar = document.querySelector('.dialog_account');
-  //     if (open && sidebar && !sidebar.contains(event.target as Node)) {
-  //       setOpen(false);
-  //     }
-  //   };
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      const sidebar = document.querySelector('.dialog_account');
+      if (open && sidebar && !sidebar.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    };
   
-  //   document.addEventListener('mousedown', handleOutsideClick);
+    document.addEventListener('mousedown', handleOutsideClick);
   
-  //   return () => {
-  //     document.removeEventListener('mousedown', handleOutsideClick);
-  //   };
-  // }, [open]);
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [open]);
 
   return (
     <div className='main_icons'>
@@ -56,6 +56,13 @@ function Icons() {
             <Link to='/cart' className='account_link'>
              <p className='third'>Cart</p>
             </Link>
+            <Link to='/profile' className='account_link'>
+             <p className='fourth'>Profile</p>
+            </Link>
+            <Link to='/orders' className='account_link'>
+             <p className='fifth'>Orders</p>
+            </Link>
+             <p className='sixth'>Logout</p>
           </div>
         }
         </div>

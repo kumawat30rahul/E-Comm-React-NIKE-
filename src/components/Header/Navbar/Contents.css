@@ -38,9 +38,9 @@
     visibility: hidden;
     z-index: 99;
     position: absolute;
-    top: 95px;
+    top: 90px;
     left: 26.5%;
-    height: 160px;
+    height: auto;
     width: 35.5%;
     border-top: 1px solid rgba(94, 89, 89, 0.281);
     background-color: white;
@@ -78,9 +78,17 @@
     visibility: visible;
 }
 
+@media (max-width: 1024px){
+    .mega_menu{
+        top: 90px;
+        left: 120px;
+        height: auto;
+        width: 36.5%;
+    }
+}
 
 @media (max-width: 960px){
-
+    
     .main_contents{
         height: 200px;
         margin-left: 20px;

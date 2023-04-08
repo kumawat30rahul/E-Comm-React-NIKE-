@@ -7,7 +7,7 @@ import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
 import MenuIcon from '@mui/icons-material/Menu';
 import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
 import CloseIcon from '@mui/icons-material/Close';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getDatabase, ref, onValue } from 'firebase/database';
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from '../../firebase'
@@ -17,7 +17,7 @@ const app = initializeApp(firebaseConfig);
 
 function Navbar() {
   const [openSidebar, setOpenSidebar] = useState(false);
-  const [searchBar, openSearchBar] = useState(false);
+  const [searchBar, setSearchBar] = useState(false);
   const [data,setData] = useState([])
   const [searchQuery,setSearchQuery] = useState('')
   const [typing,setTyping] = useState(true)
@@ -29,12 +29,13 @@ function Navbar() {
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       const sidebar = document.querySelector('.open_sidebar');
-      const searchbar = document.querySelector('.search_div');
       if (openSidebar && sidebar && !sidebar.contains(event.target as Node)) {
         setOpenSidebar(false);
       }
+      const searchbar = document.querySelector('.search_div');
+  
       if (searchBar && searchbar && !searchbar.contains(event.target as Node)) {
-        openSearchBar(false);
+        setSearchBar(false);
       }
     };
   
@@ -43,9 +44,11 @@ function Navbar() {
     return () => {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
-  }, [openSidebar,searchBar]);
+  }, [openSidebar, searchBar]);
+
+
   const searchBarHandler = () => {
-    openSearchBar(true)
+    setSearchBar(!searchBar)
   }
 
   useEffect(() => {
@@ -74,9 +77,23 @@ function Navbar() {
   }
   const navigate = useNavigate();
 
+
   const navigationHandler = (cardData: any) => {
-    navigate(`/productDetail/${cardData.id}`, { state: { cardData } })
+      navigate(`/productDetail/${cardData.id}`, { state: { cardData } })
   }
+
+  useEffect(() => {
+    if (searchBar) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  }, [searchBar]);
+
+  useEffect(() => {
+    console.log(searchBar);
+  }, [searchBar]);
+
   return (
     <div className='main_navbar'>
       {/* <div className='second_navbar'> */}
@@ -100,7 +117,9 @@ function Navbar() {
             <FavoriteTwoToneIcon />
         </div>
         <div className='div_logo'>
-          <img src={LOGO} alt='logo' className='logo'/>
+          <Link to='/' className="account_link">
+            <img src={LOGO} alt='logo' className='logo'/>
+          </Link>
         </div>
         <div className='content'>
           <Contents />
@@ -118,8 +137,14 @@ function Navbar() {
                   <h1>Your Search Results</h1>
                   {typing && <p>Please search your product</p>}
                   <div className="search_results">
-                    {filterData && filterData.length>0 && filterData.map((product:any)=>(
-                           <div className='card' onClick={() => navigationHandler(product)}>
+                    {filterData && filterData.length>0 && filterData.map((product:any,index:any)=>(
+                           <div className='card' 
+                            onClick={() => {
+                              searchBarHandler(); 
+                              navigationHandler(product)
+                            }}
+                            key={index}
+                            >
                               <div className='card_shop_image'>
                                 <img src={product.images[0]} alt='' className='shop_image' />
                               </div>

@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './Home.css'
 import CommonSlider from './Slider/CommonSlider'
+import {motion} from 'framer-motion'
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className='home_main'>
@@ -11,11 +15,32 @@ const Home = () => {
         <img src='https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_1253,c_limit/ba743504-5a47-493e-a34b-e4a0b1981ec7/nike-just-do-it.jpg' alt='image' className='home_image' />
       </div>
       <div className='home_image_description'>
-        <p>First Look</p>
-        <h3>NIKE AIR MAX PULSE</h3>
-        <div className='btns'>
+        <motion.p
+          initial={{x:25,opacity:0}}
+          whileInView={{x:0,opacity:1}}
+          viewport={{ once: true }}
+          transition={{duration:0.3,}}
+          className='btns'
+        >
+          First Look
+        </motion.p>
+        <motion.h3
+          initial={{x:-25,opacity:0}}
+          whileInView={{x:0,opacity:1}}
+          viewport={{ once: true }}
+          transition={{duration:0.3,}}
+        >
+          NIKE AIR MAX PULSE
+        </motion.h3>
+        <motion.div 
+          initial={{x:25,opacity:0}}
+          whileInView={{x:0,opacity:1}}
+          viewport={{ once: true }}
+          transition={{duration:0.3,}}
+          className='btns'
+          >
           <button className="buy btn">Shop Air Max</button>
-        </div>
+        </motion.div>
       </div>
       <div className='home_trend_slider'>
         <CommonSlider 
