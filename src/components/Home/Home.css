@@ -1,0 +1,178 @@
+.home_main{
+    min-height: 100vh;
+    width: 100%;
+    z-index: -1;
+}
+
+.home_image{
+    height: 48vw;
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.home_image_description{
+    width: 100%;
+    height: auto;
+    margin: 20px 0 20px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.home_image_description > p{
+    font-size: 1.2rem;
+    color: black !important;
+}
+
+.p2{
+    
+    margin: 0 0 15px 0;
+}
+
+.home_image_description > h3 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 900;
+    font-size: 4rem;
+    margin: -5px 0 0 0 ;
+    text-align: center;
+    line-height: 40px;
+    letter-spacing: -2px !important;
+    padding: 10px;
+}
+
+button{
+    padding: 15px;
+    width: auto;
+    height:auto;
+    border-radius: 100vw 100vw 100vw 100vw;
+    border: none;
+
+}
+button:hover{
+    cursor: pointer;
+    background-color: rgba(128, 128, 128, 0.87);
+}
+.btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.buy{
+    margin-top: 25px;
+}
+
+.btn{
+    color: white;
+    background-color: black;
+    font-size: 18px;
+}
+
+.mens_slider,.womens_slider{
+    width: 50%;
+    height: auto;
+}
+
+
+.slider_categories{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.second_home_image{
+    position: relative;
+    margin-top: 130px;
+}
+.second_home_image > h1 {
+    position: absolute;
+    top: -80px;
+    left: 10px;
+    font-weight: 200;
+}
+
+.shopping_categories{
+    position: relative;
+    /* padding-left: 15px; */
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 100px;
+
+}
+ .mens_cat,.womens_cat,.kids_cat{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image_cat{
+    width: 95%;
+    height: auto;
+} 
+
+.cat_shop_btn{
+    position: absolute;
+    bottom: 20px;
+    right: 45px;
+}
+
+.shopping_categories>h1{
+    position: absolute;
+    top: -80px;
+    left: 10px;
+    font-weight: 200;
+}
+
+.cat_links{
+    text-decoration: none;
+}
+
+@media (max-width: 600px){
+    .home_image_description > h3{
+        padding-left: 15px;
+        font-size: 3rem;
+        line-height: 30px;
+        text-align: start;
+    }
+    .home_image_description > p{
+        padding-left: 15px;
+        font-size: 1.2rem;
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+    .home_image_description {
+        display: unset;
+        padding: 10px;
+    }
+
+    .btns{
+        flex-direction: column;
+        align-items: start;
+        /* margin-bottom: 8px; */
+    }
+    .btn{
+        margin-left: 10px;
+        font-size: 12px;
+    }
+    .notify{
+        margin-top: 5px;
+    }
+    .slider_categories{
+        flex-direction: column;
+    }
+
+    .mens_slider,.womens_slider{
+        width: 95%;
+    }
+    .shopping_categories{
+        flex-direction: column;
+    }
+    .mens_cat,.womens_cat,.kids_cat{
+       margin-bottom: 10px;
+    }
+}

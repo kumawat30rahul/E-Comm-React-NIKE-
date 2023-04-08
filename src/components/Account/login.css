@@ -1,0 +1,31 @@
+.login_validation_info{
+    padding: 0 5px 0 5px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between !important;
+}
+
+.check_box_signedin{
+    display: flex;
+    align-items: center;
+}
+
+.check_box{
+    height: 12px;
+    width: 12px;
+}
+
+
+label,.forgot{
+    font-size: 12px;
+}
+
+.form > h1{
+    text-align: center;
+}
+
+.login_error{
+    color: red;
+    font-size: 12px;
+}

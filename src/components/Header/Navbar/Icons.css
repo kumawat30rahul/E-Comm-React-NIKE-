@@ -1,0 +1,74 @@
+.main{
+    display: flex;
+    align-items: center;
+}
+.main_icons{
+    cursor: pointer;
+    display: flex;
+    width: 120px;
+    align-items: center;
+    justify-content: space-between;
+}
+.icon_link{
+    text-decoration: none;
+    color: black;
+}
+
+.dialog_account{
+    position: absolute;
+    top: 100px;
+    right: 30px;
+    background-color: white;
+    height: 150px;
+    width: 150px;
+    box-shadow: 0 0 10px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.account_link{
+    width: 100% !important;
+}
+.dialog_account >.account_link > p {
+    text-align: center; 
+    width: 100% !important;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black;
+    padding: 10px 0 10px 0;
+    background-color: #e5e5e5 !important;
+    margin: 0;
+}
+
+.dialog_account > .account_link >p:hover{
+background-color: #705b5b;
+color: white;
+font-weight: 400;
+}
+.second{
+    border: none !important;
+}
+
+.account_link{
+    text-decoration: none;
+    color: black;
+}
+@media (max-width: 960px) {
+    .main_icons{
+        display:flex;
+        align-items: center;
+        width: auto;
+    }
+
+    .main_icons > .shop , .fav , .acc{
+        margin: 0 0 0 15px;
+    }
+
+    .fav{
+        display: none;
+    }
+
+   
+
+}

@@ -1,0 +1,8 @@
+.main_megamenu{
+    z-index: 999;
+    position: absolute;
+    height: 400px;
+    width: 100%;
+    border-top: 1px solid rgba(94, 89, 89, 0.281);
+    background-color: white;
+}
