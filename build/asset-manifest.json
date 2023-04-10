@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/E-Comm-React-NIKE-/static/css/main.d16266f8.css",
-    "main.js": "/E-Comm-React-NIKE-/static/js/main.5da69c2f.js",
-    "static/js/787.4bfc19b9.chunk.js": "/E-Comm-React-NIKE-/static/js/787.4bfc19b9.chunk.js",
-    "static/media/LOGO.png": "/E-Comm-React-NIKE-/static/media/LOGO.c7f6e42e8a4974dc51b2.png",
-    "index.html": "/E-Comm-React-NIKE-/index.html",
-    "main.d16266f8.css.map": "/E-Comm-React-NIKE-/static/css/main.d16266f8.css.map",
-    "main.5da69c2f.js.map": "/E-Comm-React-NIKE-/static/js/main.5da69c2f.js.map",
-    "787.4bfc19b9.chunk.js.map": "/E-Comm-React-NIKE-/static/js/787.4bfc19b9.chunk.js.map"
+    "main.css": "/static/css/main.d16266f8.css",
+    "main.js": "/static/js/main.a43b78fc.js",
+    "static/js/787.4bfc19b9.chunk.js": "/static/js/787.4bfc19b9.chunk.js",
+    "static/media/LOGO.png": "/static/media/LOGO.c7f6e42e8a4974dc51b2.png",
+    "index.html": "/index.html",
+    "main.d16266f8.css.map": "/static/css/main.d16266f8.css.map",
+    "main.a43b78fc.js.map": "/static/js/main.a43b78fc.js.map",
+    "787.4bfc19b9.chunk.js.map": "/static/js/787.4bfc19b9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d16266f8.css",
-    "static/js/main.5da69c2f.js"
+    "static/js/main.a43b78fc.js"
   ]
 }
