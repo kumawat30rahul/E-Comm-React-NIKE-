@@ -62,46 +62,13 @@ function Contents() {
               <li className="one">HOME</li>
             </Link>
             <Link to={`/shop/Mens`} className="contents_links sdfasdfsdf">
-              <li className="two">
-                MENS
-                <div className="mega_menu">
-                  <ul>
-                    <li>Shirts</li>
-                    <li>T-Shirts</li>
-                    <li>Joggers</li>
-                    <li>Shoes</li>
-                    <li>Football</li>
-                  </ul>
-                </div>
-              </li>
+              <li className="two">MENS</li>
             </Link>
             <Link to={`/shop/Womens`} className="contents_links">
-              <li className="three">
-                WOMENS
-                <div className="mega_menu">
-                  <ul>
-                    <li>Top</li>
-                    <li>Pants and Leggings</li>
-                    <li>Joggers</li>
-                    <li>Shoes</li>
-                    <li>Football</li>
-                  </ul>
-                </div>
-              </li>
+              <li className="three">WOMENS</li>
             </Link>
             <Link to={`/shop/Kids`} className="contents_links">
-              <li className="four">
-                KIDS
-                <div className="mega_menu">
-                  <ul>
-                    <li>Shirts</li>
-                    <li>T-Shirts</li>
-                    <li>Joggers</li>
-                    <li>Shoes</li>
-                    <li>Football</li>
-                  </ul>
-                </div>
-              </li>
+              <li className="four">KIDS</li>
             </Link>
             <Link to={`/shop/AllProducts`} className="contents_links">
               <li className="five">SHOP</li>
