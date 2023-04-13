@@ -11,7 +11,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { getDatabase, ref, onValue } from "firebase/database";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../../firebase";
-
 const app = initializeApp(firebaseConfig);
 
 function Navbar() {
@@ -22,6 +21,7 @@ function Navbar() {
   const [typing, setTyping] = useState(true);
   const [filterData, setFilterData] = useState([]);
 
+  const navigate = useNavigate();
   const sidebarHandler = () => {
     setOpenSidebar(!openSidebar);
   };
@@ -71,8 +71,6 @@ function Navbar() {
       setFilterData(searchedData);
     }
   };
-  const navigate = useNavigate();
-
   const navigationHandler = (cardData: any) => {
     navigate(`/productDetail/${cardData.id}`, { state: { cardData } });
   };
