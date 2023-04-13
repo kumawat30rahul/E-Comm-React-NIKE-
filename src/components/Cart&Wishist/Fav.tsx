@@ -51,7 +51,7 @@ const Fav =() => {
             <div className='cart'>
                 <h1 className="cart_title">Your Favorites</h1>
                 <div className="cart_items">
-                    {data && data.length > 0 && data.map((product:any)=>(
+                    {data && data.length > 0 ? data.map((product:any)=>(
                         <div className='cart_card'>
                             <div className="cart_card_image">
                                 <img src={product.images[0]} alt='' className='cart_image'></img>
@@ -63,12 +63,15 @@ const Fav =() => {
                                 </div>
                                 <p className='cart_type'>{product.type}</p>
                                 <div className="delete">
-                                    <button className="delete_btn btn" id={product.id} onClick={deletingProduct}><DeleteIcon /></button>
-                                    <button className="aaddtocart_btn delete_btn btn" onClick={()=>addingTocart(product)}><AddShoppingCartIcon /></button>
+                                    <button className="delete_btn_fav btn" id={product.id} onClick={deletingProduct}><DeleteIcon /></button>
+                                    <button className="aaddtocart_btn delete_btn_fav btn" onClick={()=>addingTocart(product)}><AddShoppingCartIcon /></button>
                                 </div>
                             </div>
                         </div>
-                    ))}
+                    ))
+                    :
+                    <h1>Nothing Here Yet, Add some products</h1>
+                    }
                 </div>
             </div>
         </div>
