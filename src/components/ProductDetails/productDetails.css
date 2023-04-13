@@ -1,211 +1,208 @@
-  /* .swiper {
+/* .swiper {
     width: 50%;
     height: 100%;
   }
    */
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-  
-    /* Center slide text vertically */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  
-  .swiper {
-    width: 100%;
-    height: 300px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  /* .swiper-slide {
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper {
+  width: 100%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* .swiper-slide {
     background-size: cover;
     background-position: center;
   }
    */
-  .mySwiper2 {
-    height: 80%;
-    width: 50%;
-  }
- 
-  
-  .mySwiper {
-    height: 10% !important;
-    width: 40% !important;
-    box-sizing: border-box;
-    padding: 10px 0;
-  }
-  
-  .mySwiper .swiper-slide {
-    width: 20%;
-    height: 100%;
-    opacity: 0.4;
-  }
-  
-  .mySwiper .swiper-slide-thumb-active {
-    opacity: 1;
-  }
-  
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.mySwiper2 {
+  height: 80%;
+  width: 50%;
+}
 
-  .prdt_swiper{
-    width: 70%;
-    height: 600px;
-    padding: 10px;
-  }
-  
+.mySwiper {
+  height: 10% !important;
+  width: 40% !important;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
 
-   .prdt_details{
-    position: relative;
-    margin-top: 50px;
-    display: flex;
-    width: 100%;
-  } 
+.mySwiper .swiper-slide {
+  width: 20%;
+  height: 100%;
+  opacity: 0.4;
+}
 
-  /* .prdt_swiper{
+.mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.prdt_swiper {
+  width: 70%;
+  height: 600px;
+  padding: 10px;
+}
+
+.prdt_details {
+  position: relative;
+  margin-top: 50px;
+  display: flex;
+  width: 100%;
+}
+
+/* .prdt_swiper{
     position: absolute;
     left: 30px;
   } */
 
-  .prdt_info{
-    width: 50%;
-    margin-left: -150px;
-  } 
+.prdt_info {
+  width: 50%;
+  margin-left: -150px;
+}
 
-  .prdt-title{
-    width: 70%;
-    font-weight: 500;
+.prdt-title {
+  width: 70%;
+  font-weight: 500;
+}
+
+.prdt-Price {
+  font-size: 1.4rem;
+}
+
+.prdt-desc {
+  width: 90%;
+  font-size: 1.4rem;
+}
+
+.buy-btn,
+.wishlist-btn {
+  cursor: pointer;
+  width: 180px;
+  height: 40px;
+  padding: 20px;
+  border-radius: 100vw 100vw 100vw 100vw;
+  margin: 10px 0 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buy-btn:hover,
+.wishlist-btn:hover {
+  background-color: gray;
+}
+.buy-btn {
+  background-color: black;
+  color: white;
+}
+
+.wishlist-btn {
+  background-color: white;
+  color: black;
+  border: 0.5px solid rgba(128, 128, 128, 0.466);
+}
+
+.sizes {
+  width: auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding-right: 20px;
+  /* grid-template-columns: repeat(3, 1fr); */
+  gap: 10px;
+  color: black !important;
+}
+
+.shoe-size {
+  padding: 5px;
+  height: 30px;
+  width: 50px;
+  background-color: white;
+  border: 0.5px solid rgba(0, 0, 0, 0.308);
+}
+.shoe-size:hover {
+  border: 1px solid black;
+  background-color: white;
+}
+
+.active {
+  background-color: white;
+  border: 5px solid green;
+}
+
+@media (max-width: 768px) {
+  .prdt_details {
+    flex-direction: column;
+  }
+  .prdt-desc {
+    text-align: center;
+    padding-left: 50px;
   }
 
-  .prdt-Price{
-    font-size: 1.4rem;
+  .prdt_swiper {
+    height: 422px;
+    width: 100%;
   }
-
-  .prdt-desc{
+  .mySwiper {
+    display: none !important;
+  }
+  .prdt_info {
+    margin-left: 10px;
+  }
+  .mySwiper2 {
+    margin-bottom: 50px;
+    height: 500px;
+    width: 100% !important;
+  }
+  .prdt_info {
+    margin-top: 0;
+    width: 95%;
+  }
+  .sizes {
+    margin: 10px auto;
+  }
+  .buy-btn,
+  .wishlist-btn {
+    margin: 10px auto;
     width: 90%;
-    font-size: 1.4rem;
   }
+}
 
-  .buy-btn,.wishlist-btn{
-    cursor: pointer;
-    width: 180px;
-    height: 40px;
-    padding: 20px;
-    border-radius: 100vw 100vw 100vw 100vw;
-    margin: 10px 0 10px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@media (max-width: 600px) {
+  .mySwiper2 {
+    width: 100% !important;
+    height: 400px;
   }
-
-  .buy-btn:hover,.wishlist-btn:hover{
-    background-color: gray;
+  .shoe-size {
+    width: 40px;
+    font-size: 1rem;
   }
-  .buy-btn{
-    background-color: black;
-    color: white;
+  .sizes {
+    padding-right: 0;
+    margin: 10px auto;
   }
-
-  .wishlist-btn{
-    background-color: white;
-    color: black;
-    border: 0.5px solid rgba(128, 128, 128, 0.466);
-  }
-
-  .sizes{
-    width: 70%;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 10px;
-    color: black !important;
-
-  }
-
-  .shoe-size{
-    padding: 5px;
-    height: 30px;
-    width: 120px;
-    background-color: white;
-    border: 0.5px solid rgba(0, 0, 0, 0.308);
-
-  }
-  .shoe-size:hover{
-    border: 1px solid black;
-    background-color: white;
-  }
-
-  .active{
-    background-color: white;
-    border: 5px solid green;
-  }
-
-  @media (max-width: 768px){
-    .prdt_details{
-      flex-direction: column;
-    }
-    .prdt-desc{
-      text-align: center;
-      padding-left: 50px;
-    }
-
-    .prdt_swiper{
-      height: 510px;
-      width: 100%;
-    }
-    .mySwiper{
-      display: none !important;
-    }
-    .prdt_info{
-      margin-left: 10px;
-    }
-    .mySwiper2 {
-      margin-bottom: 50px;
-      height: 500px;
-      width: 100% !important;
-    }
-    .prdt_info{
-      margin-top: 0;
-      width: 95%;
-    }
-    .sizes{
-      margin: 10px auto;
-    }
-    .buy-btn,.wishlist-btn{
-      margin: 10px auto;
-      width: 90%;
-    }
-  }
-
-  @media (max-width: 600px){
-    .mySwiper2 {
-      width: 100% !important;
-      height: 400px;
-    }
-    .shoe-size{
-      width: 90px;
-      font-size: 1rem;
-    }
-    .sizes{
-      margin: 10px auto;
-    }
-   
-    .shoe-size{
-      width: 60px;
-    }
-  }
+}
