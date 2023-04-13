@@ -15,6 +15,7 @@ import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded
 
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/database';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
@@ -41,11 +42,19 @@ const ProductDetails =()=>{
         window.scrollTo(0, 0);
       }, []);
 
-    useEffect(()=>{
-        if(localLogedIn || sessionLogedIn){
-            setLogedIn(true);
-        }
-    },[])
+        const auth = getAuth();
+        useEffect(()=>{
+            onAuthStateChanged(auth, (user)=>{
+                if(user){
+                    setLogedIn(true);
+                }
+            })
+        },[])
+    // useEffect(()=>{
+    //     if(localLogedIn || sessionLogedIn){
+    //         setLogedIn(true);
+    //     }
+    // },[])
 
     useEffect(()=>{
         if(cardData.subCategory.includes('Shoes')){
