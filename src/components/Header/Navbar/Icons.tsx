@@ -3,8 +3,9 @@ import "./Icons.css";
 import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
 import ShoppingBagTwoToneIcon from "@mui/icons-material/ShoppingBagTwoTone";
 import FavoriteTwoToneIcon from "@mui/icons-material/FavoriteTwoTone";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Avatar } from "@mui/material";
+import { getAuth, signOut } from "firebase/auth";
 
 function Icons() {
   const [open, setOpen] = useState<any>(false);
@@ -13,6 +14,14 @@ function Icons() {
     setOpen(!open);
   };
 
+  const auth = getAuth();
+  const navigate = useNavigate();
+
+  const logoutHandler = () => {
+    signOut(auth).then(() => {
+      navigate("/login");
+    });
+  };
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       const sidebar = document.querySelector(".dialog_account");
@@ -61,7 +70,9 @@ function Icons() {
             <Link to="/orders" className="account_link">
               <p className="fifth">Orders</p>
             </Link>
-            <p className="sixth">Logout</p>
+            <p className="sixth" onClick={logoutHandler}>
+              Logout
+            </p>
           </div>
         )}
       </div>
