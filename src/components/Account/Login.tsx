@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import './login.css'
-import {Link} from 'react-router-dom'
+import {Link,useNavigate} from 'react-router-dom'
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 function Login() {
   const [email,setEmail] = useState('');
@@ -9,19 +10,23 @@ function Login() {
   const [keepLoginCheck,setKeepLoginCheck] = useState(false);
   const data = localStorage.getItem('signed_up_data');
   const signedUpData =  data !==null ? JSON.parse(data) : null;
+  
+  const navigate = useNavigate()
 
+  const auth = getAuth();
   const loginHandler =(e:any)=>{
     e.preventDefault();
     if(email === signedUpData.emailId && password === signedUpData.yourPassword){
       setError(false);
       alert('Login Successfull');
+      signInWithEmailAndPassword(auth, email, password);
       if(!keepLoginCheck){
         sessionStorage.setItem('logedin_data',JSON.stringify({email: email,password: password,fullname:signedUpData.fullName}))
       }else{
         sessionStorage.setItem('logedin_data',JSON.stringify({email: email,password: password,fullname:signedUpData.fullName}))
         localStorage.setItem('logedin_data',JSON.stringify({email: email,password: password,fullname:signedUpData.fullName}))
       }
-      window.location.href ='/shop'
+      navigate('/shop/AllProducts')
     }else{
       setError(true)
     }

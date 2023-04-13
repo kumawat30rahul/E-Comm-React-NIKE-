@@ -1,99 +1,70 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
-import './Contents.css';
-import {motion} from 'framer-motion'
-import { duration } from '@mui/material';
-
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./Contents.css";
+import { motion } from "framer-motion";
+import { duration } from "@mui/material";
 
 function Contents() {
-
   const smallScreen = window.matchMedia("(max-width: 768px)").matches;
-  const [activeSubmenu, setActivesSubmenu] = useState('');
+  const [activeSubmenu, setActivesSubmenu] = useState("");
 
   const showSubmenu = (type: any, e: any) => {
     console.log(activeSubmenu);
 
     if (activeSubmenu === type) {
-      setActivesSubmenu('')
+      setActivesSubmenu("");
     } else {
-      setActivesSubmenu(type)
+      setActivesSubmenu(type);
     }
-  }
-
+  };
 
   return (
     <div>
-      <div className='main_contents'>
-        {smallScreen ?
+      <div className="main_contents">
+        {smallScreen ? (
           <ul>
-            <Link to='/' className='contents_links'>
-              <li className="one">
-                HOME
-              </li>
+            <Link to="/" className="contents_links">
+              <li className="one">HOME</li>
             </Link>
-            <div className='contents_links'>
-              <li className={`two ${activeSubmenu === "mens" ? 'activeLi' : ''}`} onClick={(e: any) => showSubmenu('mens', e)}>
+            <div className="contents_links">
+              <li
+                className={`two ${activeSubmenu === "mens" ? "activeLi" : ""}`}
+                onClick={(e: any) => showSubmenu("mens", e)}
+              >
                 MENS
-                <motion.div 
-                  initial={{y:-50}}
-                  animate={{y:0}}
-                  transition={{duration:0.2}}
-                  className={`mega_menu mens ${activeSubmenu === "mens" ? 'activesubmenu' : ''}`}>
-                  <ul>
-                    <li>Shirts</li>
-                    <li>T-Shirts</li>
-                    <li>Joggers</li>
-                    <li>Shoes</li>
-                    <li>Football</li>
-                  </ul>
-                </motion.div>
               </li>
             </div>
-            <div className='contents_links'>
-              <li className={`three ${activeSubmenu === "womens" ? 'activeLi' : ''}`} onClick={(e: any) => showSubmenu('womens', e)}>
+            <div className="contents_links">
+              <li
+                className={`three ${
+                  activeSubmenu === "womens" ? "activeLi" : ""
+                }`}
+                onClick={(e: any) => showSubmenu("womens", e)}
+              >
                 WOMENS
-                <div className={`mega_menu womens ${activeSubmenu === "womens" ? 'activesubmenu' : ''}`}>
-                  <ul>
-                    <li>Top</li>
-                    <li>Pants and Leggings</li>
-                    <li>Joggers</li>
-                    <li>Shoes</li>
-                    <li>Football</li>
-                  </ul>
-                </div>
               </li>
             </div>
-            <div className='contents_links'>
-              <li className={`four ${activeSubmenu === "kids" ? 'activeLi' : ''}`} onClick={(e: any) => showSubmenu('kids', e)}>
+            <div className="contents_links">
+              <li
+                className={`four ${activeSubmenu === "kids" ? "activeLi" : ""}`}
+                onClick={(e: any) => showSubmenu("kids", e)}
+              >
                 KIDS
-                <div className={`mega_menu kids ${activeSubmenu === "kids" ? 'activesubmenu' : ''}`} >
-                  <ul>
-                    <li>Shirts</li>
-                    <li>T-Shirts</li>
-                    <li>Joggers</li>
-                    <li>Shoes</li>
-                    <li>Football</li>
-                  </ul>
-                </div>
               </li>
             </div>
-            <Link to='/shop/AllProducts' className='contents_links'>
-              <li className="five">
-                SHOP
-              </li>
+            <Link to="/shop/AllProducts" className="contents_links">
+              <li className="five">SHOP</li>
             </Link>
           </ul>
-          :
+        ) : (
           <ul>
-            <Link to='/' className='contents_links'>
-              <li className="one">
-                HOME
-              </li>
+            <Link to="/" className="contents_links">
+              <li className="one">HOME</li>
             </Link>
-            <Link to={`/shop/Mens`} className='contents_links sdfasdfsdf'>
+            <Link to={`/shop/Mens`} className="contents_links sdfasdfsdf">
               <li className="two">
                 MENS
-                <div className='mega_menu'>
+                <div className="mega_menu">
                   <ul>
                     <li>Shirts</li>
                     <li>T-Shirts</li>
@@ -104,10 +75,10 @@ function Contents() {
                 </div>
               </li>
             </Link>
-            <Link to={`/shop/Womens`} className='contents_links'>
+            <Link to={`/shop/Womens`} className="contents_links">
               <li className="three">
                 WOMENS
-                <div className='mega_menu'>
+                <div className="mega_menu">
                   <ul>
                     <li>Top</li>
                     <li>Pants and Leggings</li>
@@ -118,10 +89,10 @@ function Contents() {
                 </div>
               </li>
             </Link>
-            <Link to={`/shop/Kids`} className='contents_links'>
+            <Link to={`/shop/Kids`} className="contents_links">
               <li className="four">
                 KIDS
-                <div className='mega_menu'>
+                <div className="mega_menu">
                   <ul>
                     <li>Shirts</li>
                     <li>T-Shirts</li>
@@ -132,16 +103,14 @@ function Contents() {
                 </div>
               </li>
             </Link>
-            <Link to={`/shop/AllProducts`} className='contents_links'>
-              <li className="five">
-                SHOP
-              </li>
+            <Link to={`/shop/AllProducts`} className="contents_links">
+              <li className="five">SHOP</li>
             </Link>
           </ul>
-        }
-      </div >
-    </div >
-  )
+        )}
+      </div>
+    </div>
+  );
 }
 
-export default Contents
+export default Contents;
