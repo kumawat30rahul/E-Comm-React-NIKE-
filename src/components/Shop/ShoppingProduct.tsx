@@ -21,7 +21,7 @@ function ShoppingProduct() {
       setData(newData);
       if (category !== "AllProducts") {
         newData = newData.filter((product: any) =>
-          product.mainCategory.includes(category)
+          product.subCategorysubCategorysubCategory.includes(category)
         );
       }
       setFilterData(newData);
@@ -80,6 +80,17 @@ function ShoppingProduct() {
               parseFloat(product.rating) >= Number(minRate) &&
               Number(product.rating) <= parseFloat(maxRate)
             );
+          });
+        });
+      }
+      const categoryFilter = filterArrays.filter(
+        (filter: any) =>
+          filter === "Mens" || filter === "Womens" || filter === "Kids"
+      );
+      if (categoryFilter && categoryFilter.length > 0) {
+        filteredProduts = filteredProduts.filter((filter: any) => {
+          return categoryFilter.some((category: any) => {
+            return filter.mainCategory.includes(category);
           });
         });
       }

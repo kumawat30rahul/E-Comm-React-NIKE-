@@ -1,21 +1,17 @@
 .outlined-input {
-    border-radius: 8px;
-    font-size: 14px;
-    height: 36px;
+  border-radius: 8px;
+  font-size: 14px;
+  height: 50px;
+  width: 150px;
+}
+
+.selection {
+  border-radius: 60px !important ;
+}
+
+@media (max-width: 768px) {
+  .outlined-input {
+    overflow-x: scroll;
     width: 100px;
   }
-
-  
-  .formcontrol{
-    width: 100px !important;
-  }
-
-  .selection{
-    border-radius:60px !important ;
-  }
-
-  .input_label{
-    margin-top: 0 !important;
-    transform: translateY(-50%);
-    top: 50%;
-  }
+}
