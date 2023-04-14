@@ -40,7 +40,7 @@ function Login() {
             JSON.stringify({
               email: email,
               password: password,
-              fullname: signedUpData.fullName,
+              fullname: user.displayName,
             })
           );
         } else {
@@ -49,7 +49,7 @@ function Login() {
             JSON.stringify({
               email: email,
               password: password,
-              fullname: signedUpData.fullName,
+              fullname: user.displayName,
             })
           );
           localStorage.setItem(
@@ -57,17 +57,21 @@ function Login() {
             JSON.stringify({
               email: email,
               password: password,
-              fullname: signedUpData.fullName,
+              fullname: user.displayName,
             })
           );
         }
         navigate("/shop/AllProducts");
       })
       .catch((error) => {
-        if (error.email === false) {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        if (errorCode === "auth/user-not-found") {
+          alert(errorMessage);
+        } else if (errorCode === "auth/wrong-password") {
           setError({ email: false, login: true });
         } else {
-          setError({ email: true, login: true });
+          console.error(error);
         }
       });
   };

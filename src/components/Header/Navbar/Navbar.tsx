@@ -45,8 +45,9 @@ function Navbar() {
     };
   }, [openSidebar, searchBar]);
 
-  const searchBarHandler = () => {
-    setSearchBar(!searchBar);
+  const searchBarHandler = (type: any) => {
+    console.log(type);
+    setSearchBar(type);
   };
 
   useEffect(() => {
@@ -118,7 +119,7 @@ function Navbar() {
         <Contents />
       </div>
       <div className="icons">
-        <div className="search_main" onClick={searchBarHandler}>
+        <div className="search_main" onClick={() => searchBarHandler(true)}>
           <input
             className="search_input"
             type="text"
@@ -128,51 +129,51 @@ function Navbar() {
           <div className="div_icon">
             <SearchTwoToneIcon className="icon" />
           </div>
-          {searchBar && (
-            <div className="search_div">
-              <input
-                className="search_input new_input"
-                type="text"
-                placeholder="Search Here"
-                onChange={searching}
-              />
-              <h1>Your Search Results</h1>
-              {typing && <p>Please search your product</p>}
-              <div className="search_results">
-                {filterData &&
-                  filterData.length > 0 &&
-                  filterData.map((product: any, index: any) => (
-                    <div
-                      className="card"
-                      onClick={() => {
-                        searchBarHandler();
-                        navigationHandler(product);
-                      }}
-                      key={index}
-                    >
-                      <div className="card_shop_image">
-                        <img
-                          src={product.images[0]}
-                          alt=""
-                          className="shop_image"
-                        />
-                      </div>
-                      <div className="card_shop_info">
-                        <h3 className="card-shop_title">{product.title}</h3>
-                        <p className="card-shop_type">{product.type}</p>
-                        <h3 className="card-shop_price">
-                          MRP: $
-                          {Number(product.price).toLocaleString("en-US", {
-                            minimumFractionDigits: 2,
-                          })}
-                        </h3>
-                      </div>
-                    </div>
-                  ))}
-              </div>
-            </div>
-          )}
         </div>
+        {searchBar && (
+          <div className="search_div">
+            <input
+              className="search_input new_input"
+              type="text"
+              placeholder="Search Here"
+              onChange={searching}
+            />
+            <h1>Your Search Results</h1>
+            {typing && <p>Please search your product</p>}
+            <div className="search_results">
+              {filterData &&
+                filterData.length > 0 &&
+                filterData.map((product: any, index: any) => (
+                  <div
+                    className="card"
+                    onClick={() => {
+                      searchBarHandler(false);
+                      navigationHandler(product);
+                    }}
+                    key={index}
+                  >
+                    <div className="card_shop_image">
+                      <img
+                        src={product.images[0]}
+                        alt=""
+                        className="shop_image"
+                      />
+                    </div>
+                    <div className="card_shop_info">
+                      <h3 className="card-shop_title">{product.title}</h3>
+                      <p className="card-shop_type">{product.type}</p>
+                      <h3 className="card-shop_price">
+                        MRP: $
+                        {Number(product.price).toLocaleString("en-US", {
+                          minimumFractionDigits: 2,
+                        })}
+                      </h3>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </div>
+        )}
         <Icons />
       </div>
       {/* </div> */}
