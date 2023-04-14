@@ -1,12 +1,12 @@
-import React,{useEffect, useState, useContext} from 'react';
-import { Theme, useTheme } from '@mui/material/styles';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-import './FilterTab.css'
-import {FilterProvider} from '../Shop'
+import React, { useEffect, useState, useContext } from "react";
+import { Theme, useTheme } from "@mui/material/styles";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import "./FilterTab.css";
+import { FilterProvider } from "../Shop";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -19,8 +19,6 @@ const MenuProps = {
   },
 };
 
-
-
 function getStyles(name: string, personName: string[], theme: Theme) {
   return {
     fontWeight:
@@ -30,45 +28,56 @@ function getStyles(name: string, personName: string[], theme: Theme) {
   };
 }
 
-export default function FilterTab({personName,setPersonName,filterArray,name}:any) {
-  const names = [
-    ...filterArray,
-  ];
+export default function FilterTab({
+  personName,
+  setPersonName,
+  filterArray,
+  name,
+}: any) {
+  const names = [...filterArray];
   const theme = useTheme();
-  
-  const {filterArrays, setFilterArrays,mySet} = useContext(FilterProvider);
+
+  const { filterArrays, setFilterArrays, mySet } = useContext(FilterProvider);
 
   const handleChange = (event: SelectChangeEvent<typeof personName>) => {
     const {
       target: { value },
     } = event;
 
-
-    for(let i = 0;i<value.length;i++){
-      mySet.add(value[i])
+    for (let i = 0; i < value.length; i++) {
+      mySet.add(value[i]);
     }
-    setPersonName(
-      typeof value === 'string' ? value.split(',') : value,
-    );
-    setFilterArrays([...mySet])
+    setPersonName(typeof value === "string" ? value.split(",") : value);
+    setFilterArrays([...mySet]);
   };
 
+  const styles = {
+    position: "absolute",
+    left: "0",
+    top: "-6px",
+  };
 
- 
-  
   return (
     <div>
       <FormControl sx={{ m: 1 }} className="formcontrol">
-        <InputLabel id="demo-multiple-name-label" className='input_label'>{name}</InputLabel>
+        <InputLabel
+          // sx={styles}
+          id="demo-multiple-name-label"
+          className="input_label"
+        >
+          {name}
+        </InputLabel>
         <Select
           labelId="demo-multiple-name-label"
           id="demo-multiple-name"
           multiple
           value={personName}
           onChange={handleChange}
-          input={<OutlinedInput label="Name" classes={{ root: 'outlined-input' }}/>}
+          input={
+            <OutlinedInput label="Name" classes={{ root: "outlined-input" }} />
+          }
           MenuProps={MenuProps}
-          className='selection'
+          className="selection"
         >
           {names.map((name) => (
             <MenuItem
