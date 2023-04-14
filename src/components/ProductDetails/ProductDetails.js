@@ -37,7 +37,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [cardData]);
 
   const auth = getAuth();
   useEffect(() => {

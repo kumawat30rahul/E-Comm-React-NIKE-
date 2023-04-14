@@ -21,7 +21,11 @@ function ShoppingProduct() {
       setData(newData);
       if (category !== "AllProducts") {
         newData = newData.filter((product: any) =>
-          product.subCategorysubCategorysubCategory.includes(category)
+          product.subCategory.includes(category)
+        );
+      } else if (category === "Recommendation") {
+        newData = newData.filter((product: any) =>
+          product.subCategory.includes("Shoes")
         );
       }
       setFilterData(newData);
