@@ -21,7 +21,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgba(128, 128, 128, 0.144);
-  margin-top: 95px;
+  margin-top: 95px !important;
 }
 
 code {
